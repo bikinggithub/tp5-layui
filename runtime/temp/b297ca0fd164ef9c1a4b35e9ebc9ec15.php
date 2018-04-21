@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:78:"D:\phpStudy\WWW\tp5\public/../application/admin\view\powermanage\rolelist.html";i:1524317225;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1524283474;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1524283474;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1524283474;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:78:"D:\phpStudy\WWW\tp5\public/../application/admin\view\powermanage\rolelist.html";i:1524321411;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1524283474;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1524283474;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1524283474;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -291,6 +291,15 @@
 		  title:'角色授权用户',
 		  area: ['700px', '500px'], 
 		  content: "/admin/Powermanage/roleusers/rid/"+dataid //不想让iframe出现滚动条，可以content: ['http://sentsin.com', 'no']
+		});
+	}
+
+	function checkAccessAction(dataid){
+		layer.open({
+		  type: 2,
+		  title:'角色授权',
+		  area: ['700px', '500px'], 
+		  content: "/admin/Powermanage/rolenodes/rid/"+dataid //不想让iframe出现滚动条，可以content: ['http://sentsin.com', 'no']
 		});
 	}
 

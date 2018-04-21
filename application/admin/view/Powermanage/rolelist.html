@@ -143,6 +143,15 @@
 		});
 	}
 
+	function checkAccessAction(dataid){
+		layer.open({
+		  type: 2,
+		  title:'角色授权',
+		  area: ['700px', '500px'], 
+		  content: "/admin/Powermanage/rolenodes/rid/"+dataid //不想让iframe出现滚动条，可以content: ['http://sentsin.com', 'no']
+		});
+	}
+
 	function addDataAction(){
 		edituserbox = layer.open({
 		  type: 2,

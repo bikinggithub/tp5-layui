@@ -56,11 +56,11 @@ class Powermanage extends Base
     }
 
     //获取上级节点
-    public function getParentsMenues()
+    public function getParentsMenues($orderby = 'sortnum asc')
     {
         $data = array();
         $field = 'id,name,pid,gradenum';
-        $tmpdata = model('Menues')->getListData($field,array('pid'=>array('eq',0)),'sortnum asc');
+        $tmpdata = model('Menues')->getListData($field,array('pid'=>array('eq',0)),$orderby);
         //获取所有的一级菜单，进行遍历
         foreach($tmpdata as $value){
                 array_push($data,$value);
@@ -345,6 +345,50 @@ class Powermanage extends Base
             }
    
         }
+    }
+
+    //角色授权
+    public function rolenodes(){
+
+        if(request()->isPost()){
+
+            //echo '<pre/>';var_dump($_POST);die();
+            $rid = $_POST['rid'];
+
+            $nodesarr = isset($_POST['roleaccess'])?$_POST['roleaccess']:'';
+            if(empty($nodesarr)){
+                model('RolesNodes')->where(array('role_id'=>array('eq',$rid)))->delete();
+                $this->setSysTips(1,'授权成功');
+                echo 200;exit();
+            }
+            $d = array();
+            foreach($nodesarr as $val){
+                $tmparr = array();
+                $tmparr['role_id'] = $rid;
+                $tmparr['node_id'] = $val;
+                array_push($d,$tmparr);
+            }
+
+            //echo '<pre/>';var_dump($d);die();
+
+            $res = model('RolesNodes')->saveAll($d);
+            if($res === false){
+                $this->setSysTips(2,'授权失败');
+            }else{
+                $this->setSysTips(1,'授权成功');
+            }
+            echo 200;exit();
+        }
+
+
+
+        $rid = request()->param('rid');
+        //获取节点数据
+        $data = $this->getParentsMenues('id asc');
+        // echo '<pre/>';var_dump($data);die();
+        $this->assign('list',$data);
+        $this->assign('rid',$rid);
+        return view('rolenodes');
     }
 
 }
