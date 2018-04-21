@@ -17,7 +17,7 @@
       <select name="pid" lay-verify="required">
         <option value="0">一级菜单</option>
         <?php if(is_array($pidsarr) || $pidsarr instanceof \think\Collection || $pidsarr instanceof \think\Paginator): $i = 0; $__LIST__ = $pidsarr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$pids): $mod = ($i % 2 );++$i;if($pids['gradenum'] != '3'): if($pids['id'] != $datainfo['id']): ?>
-                <option <?php if($datainfo['pid'] == $pids['id']): ?>selected<?php endif; ?> value="<?php echo $pids['id']; ?>"> <?php if($pids['gradenum'] != '1'): ?>|<?php endif; $__FOR_START_27643__=1;$__FOR_END_27643__=$pids['gradenum'];for($i=$__FOR_START_27643__;$i < $__FOR_END_27643__;$i+=1){ ?>--<?php } ?><?php echo $pids['name']; ?></option>
+                <option <?php if($datainfo['pid'] == $pids['id']): ?>selected<?php endif; ?> value="<?php echo $pids['id']; ?>"> <?php if($pids['gradenum'] != '1'): ?>|<?php endif; $__FOR_START_8719__=1;$__FOR_END_8719__=$pids['gradenum'];for($i=$__FOR_START_8719__;$i < $__FOR_END_8719__;$i+=1){ ?>--<?php } ?><?php echo $pids['name']; ?></option>
             <?php endif; endif; endforeach; endif; else: echo "" ;endif; ?>
       </select>
     </div>

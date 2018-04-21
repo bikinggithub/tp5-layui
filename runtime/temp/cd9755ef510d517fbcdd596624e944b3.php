@@ -235,7 +235,7 @@
 	      </td>
 	      <!-- <td><?php echo $vo['id']; ?></td> -->
 	      <td>|
-	      	<?php $__FOR_START_32729__=1;$__FOR_END_32729__=$vo['gradenum'];for($i=$__FOR_START_32729__;$i < $__FOR_END_32729__;$i+=1){ ?>
+	      	<?php $__FOR_START_12225__=1;$__FOR_END_12225__=$vo['gradenum'];for($i=$__FOR_START_12225__;$i < $__FOR_END_12225__;$i+=1){ ?>
 			--
 			<?php } ?>
 	      	<?php echo $vo['name']; ?>

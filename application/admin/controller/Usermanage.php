@@ -72,6 +72,7 @@ class Usermanage extends Base
     	if(request()->isPost()){
     		//判断用户是否存在
     		$edituid = $_POST['edituid'];
+
             if($edituid == 1){
                 $this->setSysTips(2,'管理员账号不可编辑');exit();
             }

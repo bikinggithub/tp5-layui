@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\add.html";i:1524284184;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\add.html";i:1524304697;}*/ ?>
 
 <link rel="stylesheet" href="/static/admin/layui/css/layui.css" media="all" />
   <link rel="stylesheet" href="/static/admin/css/font_eolqem241z66flxr.css" media="all" />
@@ -7,8 +7,11 @@
   <script type="text/javascript" src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
 
   <script type="text/javascript" src="/static/admin/layui/layui.js"></script>
+
 <div class="dialogbox">
-    <form class="layui-form" id="addform" action="<?php echo url('admin/Usermanage/add'); ?>" method="post">
+
+<form class="layui-form" id="addform" action="<?php echo url('admin/Usermanage/add'); ?>" method="post">
+
   <div class="layui-form-item">
     <label class="layui-form-label">账号*</label>
     <div class="layui-input-inline">
@@ -44,8 +47,10 @@
     <label class="layui-form-label">头像</label>
     <div class="layui-input-inline">
       <button type="button" class="layui-btn layui-btn-primary" id="headimg">
+
       <i class="layui-icon">&#xe681;</i>上传图片
     </button>
+
     </div>
     <div class="layui-form-mid layui-word-aux">选填</div>
   </div>
@@ -90,6 +95,7 @@
     </div>
   </div>
 </form>
+
 </div>
 
  

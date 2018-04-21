@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\edit.html";i:1524284291;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\edit.html";i:1524304778;}*/ ?>
 
 <link rel="stylesheet" href="/static/admin/layui/css/layui.css" media="all" />
   <link rel="stylesheet" href="/static/admin/css/font_eolqem241z66flxr.css" media="all" />
@@ -7,6 +7,7 @@
   <script type="text/javascript" src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
 
   <script type="text/javascript" src="/static/admin/layui/layui.js"></script>
+
 <div class="dialogbox">
     <form class="layui-form" id="editform" action="<?php echo url('admin/Usermanage/edit'); ?>" method="post">
       <input type="hidden" name="edituid" value="<?php echo $userinfo['id']; ?>" />

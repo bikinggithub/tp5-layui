@@ -252,6 +252,7 @@ return [
         'username'    => 'root',
         // 数据库密码
         'password'    => '123456',
+
         // 数据库编码默认采用utf8
         'charset'     => 'utf8',
         // 数据库表前缀

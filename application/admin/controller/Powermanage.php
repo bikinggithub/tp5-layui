@@ -201,6 +201,4 @@ class Powermanage extends Base
         return view('edit');
     }
 
-
-
 }
