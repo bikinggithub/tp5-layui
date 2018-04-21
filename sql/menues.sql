@@ -1,25 +1,24 @@
 /*
-SQLyog Ultimate v12.09 (64 bit)
-MySQL - 5.5.53 : Database - test
-*********************************************************************
-*/
+Navicat MySQL Data Transfer
 
-/*!40101 SET NAMES utf8 */;
+Source Server         : localhost
+Source Server Version : 50553
+Source Host           : localhost:3306
+Source Database       : tp5
 
-/*!40101 SET SQL_MODE=''*/;
+Target Server Type    : MYSQL
+Target Server Version : 50553
+File Encoding         : 65001
 
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`test` /*!40100 DEFAULT CHARACTER SET latin1 */;
+Date: 2018-04-21 22:23:21
+*/
 
-USE `test`;
+SET FOREIGN_KEY_CHECKS=0;
 
-/*Table structure for table `menues` */
-
+-- ----------------------------
+-- Table structure for menues
+-- ----------------------------
 DROP TABLE IF EXISTS `menues`;
-
 CREATE TABLE `menues` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) NOT NULL DEFAULT '0' COMMENT '上级菜单id',
@@ -36,13 +35,29 @@ CREATE TABLE `menues` (
   `create_at` datetime NOT NULL COMMENT '创建时间',
   `update_at` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
-/*Data for the table `menues` */
-
-insert  into `menues`(`id`,`pid`,`name`,`link_url`,`sortnum`,`is_show`,`module_name`,`control_name`,`method_name`,`menues_status`,`markid`,`gradenum`,`create_at`,`update_at`) values (1,0,'首页','/admin/Index/index',100,1,'admin','Index','index',1,'homepage',1,'2018-04-10 20:15:13','2018-04-10 20:15:15'),(2,1,'首页欢迎页','/admin/Index/index',10,1,'admin','Index','index',1,'homepage',2,'2018-04-10 20:15:13','2018-04-10 20:15:13'),(3,0,'系统管理','/admin/Usermanage/userlist',10,1,'admin','Usermanage','userlist',1,'usermanage',1,'2018-04-10 20:15:13','2018-04-10 20:15:13'),(4,3,'用户管理','/admin/Usermanage/index',20,1,'admin','Usermanage','index',1,'userindex',2,'2018-04-10 20:15:13','2018-04-10 20:15:13'),(5,4,'用户列表','/admin/Usermanage/userlist',10,1,'admin','Usermanage','userlist',1,'usermanage',3,'2018-04-10 20:15:13','2018-04-10 20:15:13'),(6,3,'权限管理','/admin/Powermanage/index',10,1,'admin','Powermanage','index',1,'powerindex',2,'2018-04-10 20:15:13','2018-04-10 20:15:13'),(7,6,'角色列表','/admin/Powermanage/rolelist',10,1,'admin','Powermanage','rolelist',1,'rolelist',3,'2018-04-10 20:15:13','2018-04-10 20:15:13'),(8,6,'节点列表','/admin/Powermanage/nodelist',20,1,'admin','Powermanage','nodelist',1,'nodelist',3,'2018-04-10 20:15:13','2018-04-10 20:15:13'),(9,6,'角色权限','/admin/Powermanage/rolenodelist',30,1,'admin','Powermanage','rolenodelist',1,'rolenodelist',3,'2018-04-10 20:15:13','2018-04-10 20:15:13'),(10,4,'用户新增','/admin/Usermanage/add',20,2,'admin','Usermanage','add',1,'useradd',3,'2018-04-10 20:15:13','2018-04-10 20:15:13'),(11,4,'用户编辑','/admin/Usermanage/edit',30,2,'admin','Usermanage','edit',1,'useredit',3,'2018-04-10 20:15:13','2018-04-10 20:15:13'),(12,4,'用户删除','/admin/Usermanage/delete',40,2,'admin','Usermanage','delete',1,'userdelete',3,'2018-04-10 20:15:13','2018-04-10 20:15:13');
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+-- ----------------------------
+-- Records of menues
+-- ----------------------------
+INSERT INTO `menues` VALUES ('1', '0', '首页', '/admin/Index/index', '100', '1', 'admin', 'Index', 'index', '1', 'homepage', '1', '2018-04-10 20:15:13', '2018-04-10 20:15:15');
+INSERT INTO `menues` VALUES ('2', '1', '首页欢迎页', '/admin/Index/index', '10', '1', 'admin', 'Index', 'index', '1', 'homepage', '2', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
+INSERT INTO `menues` VALUES ('3', '0', '系统管理', '/admin/Usermanage/userlist', '10', '1', 'admin', 'Usermanage', 'userlist', '1', 'usermanage', '1', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
+INSERT INTO `menues` VALUES ('4', '3', '用户管理', '/admin/Usermanage/index', '20', '1', 'admin', 'Usermanage', 'index', '1', 'userindex', '2', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
+INSERT INTO `menues` VALUES ('5', '4', '用户列表', '/admin/Usermanage/userlist', '10', '1', 'admin', 'Usermanage', 'userlist', '1', 'usermanage', '3', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
+INSERT INTO `menues` VALUES ('6', '3', '权限管理', '/admin/Powermanage/index', '10', '1', 'admin', 'Powermanage', 'index', '1', 'powerindex', '2', '2018-04-10 20:15:13', '2018-04-21 19:49:05');
+INSERT INTO `menues` VALUES ('7', '6', '角色列表', '/admin/Powermanage/rolelist', '10', '1', 'admin', 'Powermanage', 'rolelist', '1', 'rolelist', '3', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
+INSERT INTO `menues` VALUES ('8', '6', '节点列表', '/admin/Powermanage/nodelist', '20', '1', 'admin', 'Powermanage', 'nodelist', '1', 'nodelist', '3', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
+INSERT INTO `menues` VALUES ('9', '3', '系统设置', '/admin/Sysmanage/index', '30', '1', 'admin', 'Sysmanage', 'index', '1', 'systemindex', '2', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
+INSERT INTO `menues` VALUES ('10', '4', '用户新增', '/admin/Usermanage/add', '20', '2', 'admin', 'Usermanage', 'add', '1', 'useradd', '3', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
+INSERT INTO `menues` VALUES ('11', '4', '用户编辑', '/admin/Usermanage/edit', '30', '2', 'admin', 'Usermanage', 'edit', '1', 'useredit', '3', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
+INSERT INTO `menues` VALUES ('12', '4', '用户删除', '/admin/Usermanage/delete', '40', '2', 'admin', 'Usermanage', 'delete', '1', 'userdelete', '3', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
+INSERT INTO `menues` VALUES ('18', '6', '节点新增', '/admin/Powermanage/add', '21', '2', 'admin', 'Powermanage', 'add', '1', 'nodeadd', '3', '2018-04-21 19:58:48', '2018-04-21 19:58:51');
+INSERT INTO `menues` VALUES ('19', '6', '节点编辑', '/admin/Powermanage/edit', '23', '2', 'admin', 'Powermanage', 'edit', '1', 'nodeedit', '3', '2018-04-21 20:00:56', '2018-04-21 20:00:59');
+INSERT INTO `menues` VALUES ('20', '6', '节点删除', '/admin/Powermanage/delete', '25', '2', 'admin', 'Powermanage', 'delete', '1', 'nodedelete', '3', '2018-04-21 20:00:56', '2018-04-21 20:00:56');
+INSERT INTO `menues` VALUES ('21', '6', '角色新增', '/admin/Powermanage/roleadd', '11', '2', 'admin', 'Powermanage', 'roleadd', '1', 'roleadd', '3', '2018-04-21 20:00:56', '2018-04-21 20:00:56');
+INSERT INTO `menues` VALUES ('22', '6', '角色编辑', '/admin/Powermanage/roleedit', '13', '2', 'admin', 'Powermanage', 'roleedit', '1', 'roleedit', '3', '2018-04-21 20:00:56', '2018-04-21 20:00:56');
+INSERT INTO `menues` VALUES ('23', '6', '角色删除', '/admin/Powermanage/roledelete', '15', '2', 'admin', 'Powermanage', 'roledelete', '1', 'roledelete', '3', '2018-04-21 20:00:56', '2018-04-21 20:00:56');
+INSERT INTO `menues` VALUES ('24', '6', '角色成员查看', '/admin/Powermanage/roleusers', '16', '2', 'admin', 'Powermanage', 'roleusers', '1', 'roleusers', '3', '2018-04-21 22:06:10', '2018-04-21 22:06:10');
+INSERT INTO `menues` VALUES ('25', '6', '取消角色授权', '/admin/Powermanage/deluserrole', '17', '2', 'admin', 'Powermanage', 'deluserrole', '1', 'deluserrole', '3', '2018-04-21 22:08:22', '2018-04-21 22:08:22');
+SET FOREIGN_KEY_CHECKS=1;
