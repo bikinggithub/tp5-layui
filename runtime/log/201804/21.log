@@ -11063,3 +11063,52 @@
 [ info ] [ LOG ] INIT File
 
 ---------------------------------------------------------------
+[ 2018-04-21T17:38:43+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Powermanage/nodelist
+[ log ] localtp5.com/admin/Powermanage/nodelist [运行时间：0.079980s][吞吐率：12.50req/s] [内存消耗：2,251.34kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Powermanage',
+    2 => 'nodelist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=picks1oh28ubqlfc1ufkcigqb0',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin/Powermanage/nodelist',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Powermanage->nodelist[ D:\phpStudy\WWW\tp5\application\admin\controller\Powermanage.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\WWW\tp5\public/../application/admin\view\powermanage\nodelist.html [ array (
+  0 => 'headmenues',
+  1 => 'submenues',
+  2 => 'sysuser',
+  3 => 'gradenum',
+  4 => 'markid',
+  5 => 'sysmsg',
+  6 => 'syscode',
+  7 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
