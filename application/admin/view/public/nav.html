@@ -1,0 +1,76 @@
+<div class="layui-side layui-bg-black">
+			<div class="user-photo">
+				<a class="img" title="我的头像" ><img src=""></a>
+				<p>你好！<span class="userName">{$sysuser.username}</span>, 欢迎登录</p>
+			</div>
+			<div class="navBar layui-side-scroll">
+				<ul class="layui-nav layui-nav-tree">
+					{volist name="submenues" id="vo"}
+
+						{if condition="$vo.is_has_sub"} 
+
+							<li class="layui-nav-item">
+
+								<a href="javascript:;">
+									<i class="layui-icon" data-icon="&#xe62d;"></i>
+									<cite>{$vo['name']}</cite>
+									<span class="layui-nav-more"></span>
+								</a>
+								<dl class="layui-nav-child">
+									{volist name="$vo['subdata']" id="subvo"}
+										<dd>
+											<a href="{$subvo['link_url']}" id="{$subvo['markid']}">
+											<i class="layui-icon" data-icon="&#xe62d;"></i>
+											<cite>{$subvo['name']}</cite>
+											</a>
+										</dd>
+									{/volist}
+								</dl>
+							</li>
+						{else /}
+							<li class="layui-nav-item">
+								<a href="{$vo['link_url']}" id="{$vo['markid']}">
+									<i class="iconfont icon-computer" data-icon="icon-computer"></i>
+									<cite>{$vo['name']}</cite>
+								</a>
+							</li>	 
+						{/if}
+						
+					{/volist}
+
+					
+					<!-- <li class="layui-nav-item">
+						<a href="javascript:;" data-url="page/systemParameter/systemParameter.html">
+							<i class="layui-icon" data-icon="&#xe62d;">&#xe60c;</i>
+							<cite>系统基本参数</cite>
+						</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">
+							<i class="layui-icon" data-icon="&#xe62d;"></i>
+							<cite>二级菜单演示</cite>
+							<span class="layui-nav-more"></span>
+						</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;" data-url="">
+								<i class="layui-icon" data-icon="&#xe62d;"></i>
+								<cite>二级菜单1</cite>
+								</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-url="">
+									<i class="layui-icon" data-icon="&#xe62d;"></i>
+									<cite>二级菜单2</cite>
+								</a>
+							</dd>
+						</dl>
+					</li> -->
+					<span class="layui-nav-bar" style="top: 247.5px; height: 0px; opacity: 0;"></span>
+				</ul>
+			</div>
+		</div>
+		<script>
+			var navgradenum = "{$gradenum}";
+			var navmarkid = "{$markid}";
+		</script>

@@ -1,0 +1,289 @@
+<div class="layui-row" style="margin-bottom:10px;">
+    <div class="layui-col-md12">
+      <form action="/admin/Usermanage/userlist" method="get" id="searchform">
+      	<input type="hidden" name="page" id="pagenum" value='1' />
+      	<div class="actionbtn">
+      		<button type="button" onclick="addUser();" class="layui-btn layui-btn-primary">
+			  <i class="layui-icon">&#xe608;</i> 添加
+			</button>	
+    		
+            <button onclick="deleteAll();" type="button" class="layui-btn layui-btn-primary">
+            	<i class="layui-icon">&#xe640;</i>删除
+            </button>
+    	</div>
+      	<div class="searchformdiv" >
+      		<div style="clear:both;float:right;">
+      			<label class="search_lab_css">账号：</label>
+			    <div class="layui-inline">
+			      <input type="text" name="account" value="{$Think.get.account}" placeholder="请输入账号"  class="layui-input">
+			    </div>
+
+			    <label class="search_lab_css">状态</label>
+			    <div class="layui-inline">
+			      <select name="status">
+			        <option  value="">请选择</option>
+			        <option {eq name="$Think.get.status" value="1"}selected{/eq} value="1">正常</option>
+			        <option {eq name="$Think.get.status" value="2"}selected{/eq} value="2">禁用</option>
+			      </select>
+			    </div>
+
+			    <button class="layui-btn layui-btn-normal">搜索</button>
+      		</div>
+		 </div>
+
+      </form>
+    </div>
+</div>
+<div style="clear:both;"></div>
+<hr class="layui-bg-gray">
+
+<div class="layui-row">
+    <div class="layui-col-md12">
+      
+    </div>
+</div>
+
+<i class="iconfont icon-computer"></i>
+<i class="iconfont icon-zhanghu"></i>
+<i class="iconfont icon-lock1"></i>
+<i class="iconfont icon-erweima"></i>
+<i class="iconfont icon-xinlangweibo"></i>
+<i class="iconfont icon-qq"></i>
+<i class="iconfont icon-icon"></i>
+<i class="iconfont icon-edit"></i>
+<i class="iconfont icon-text"></i>
+<i class="iconfont icon-loginout"></i>
+<i class="iconfont icon-shuaxin1"></i>
+<i class="iconfont icon-shezhi1"></i>
+<i class="iconfont icon-gonggao"></i>
+<i class="iconfont icon-wenben"></i>
+<i class="iconfont icon-dengji3"></i>
+<i class="iconfont icon-dengji1"></i>
+<i class="iconfont icon-dengji2"></i>
+<i class="iconfont icon-dengji4"></i>
+<i class="iconfont icon-dengji5"></i>
+<i class="iconfont icon-dengji6"></i>
+<i class="iconfont icon-new1"></i>
+<i class="iconfont icon-link"></i>
+<i class="iconfont icon-lingsheng"></i>
+<i class="iconfont icon-star"></i>
+<i class="iconfont icon-dongtaifensishu"></i>
+<i class="iconfont icon-weather"></i>
+
+<hr class="layui-bg-gray">
+
+<div class="layui-form">
+<table class="layui-table" lay-even>
+  <thead>
+    <tr>
+      <th>
+      	<div class="laytable-cell-checkbox">
+      		<input type="checkbox" lay-skin="primary" lay-filter="allChoose">
+      	</div>
+      </th>
+      <th>帐号ID</th>
+      <th>账号</th>
+      <th>头像</th>
+      <th>状态</th>
+      <th>创建时间</th>
+      <th>操作</th>
+    </tr> 
+  </thead>
+  <tbody>
+    
+    {volist name='list' id='user'}
+	    <tr>
+	      <td>
+	      	<div class="laytable-cell-checkbox">
+	      		<input type="checkbox" lay-filter="itemChoose"  name="selectedidstr" lay-skin="primary" value="{$user.id}" />
+	      	</div>
+	      </td>
+	      <td>{$user.id}</td>
+	      <td>{$user.account}</td>
+	      <td>
+	      	<img src="{$user.head_img}" style="max-width:30px"/>
+  		  </td>
+	      <td>
+	      	{if condition="$user.status eq '1'"}
+	      	正常
+	      	{else /}
+	      	禁用
+	      	{/if}
+	      </td>
+	      <td>{$user.create_at}</td>
+	      <td>
+
+	      	
+	      	{if condition="$user.id eq 1"}
+	      		<button class="layui-btn layui-btn-warm layui-btn-disabled" >修改</button>
+	      		<button class="layui-btn layui-btn-danger layui-btn-disabled">删除</button>
+	      	{else/}
+	      		<button class="layui-btn layui-btn-warm" onclick="editUser({$user.id})">修改</button>
+	      		<button onclick="confirmdel({$user.id})" class="layui-btn layui-btn-danger">删除</button>
+	      	{/if}
+	      	
+
+	      </td>
+	    </tr>
+	{/volist}
+  </tbody>
+</table>
+</div>
+
+{$page}
+
+<script>
+	var layer = '';
+	var form = '';
+	var edituserbox;
+	layui.use(['form','layer'], function(){
+  		form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+ 		layer = layui.layer;
+  		/*layer.open({
+		  type: 2, 
+		  content: "{:url('admin/Usermanage/edit')}" //不想让iframe出现滚动条，可以content: ['http://sentsin.com', 'no']
+		}); */
+
+		form.on('checkbox(allChoose)', function(data){
+		    var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+		    child.each(function(index, item){
+		        item.checked = data.elem.checked;
+		    });
+		    form.render('checkbox');
+		});
+		form.on('checkbox(itemChoose)',function(data){
+		    var sib = $(data.elem).parents('table').find('tbody input[type="checkbox"]:checked').length;
+		    var total = $(data.elem).parents('table').find('tbody input[type="checkbox"]').length;
+		    if(sib == total){
+		        $(data.elem).parents('table').find('thead input[type="checkbox"]').prop("checked",true);
+		        form.render();
+		    }else{
+		        $(data.elem).parents('table').find('thead input[type="checkbox"]').prop("checked",false);
+		        form.render();
+		    }
+		});
+
+		showSysTips(layer);
+	});
+
+	function editUser(uid){
+		edituserbox = layer.open({
+		  type: 2,
+		  title:'用户编辑',
+		  area: ['700px', '500px'], 
+		  content: "/admin/Usermanage/edit/uid/"+uid //不想让iframe出现滚动条，可以content: ['http://sentsin.com', 'no']
+		});
+	}
+
+	function addUser(){
+		edituserbox = layer.open({
+		  type: 2,
+		  title:'用户新增',
+		  area: ['700px', '500px'], 
+		  content: "{:url('admin/Usermanage/add')}" //不想让iframe出现滚动条，可以content: ['http://sentsin.com', 'no']
+		});
+	}
+
+	function closebox(){
+		layer.close(edituserbox);
+	}
+	function reloadpage(){
+		window.location.reload();
+	}
+
+	function confirmdel(uid){
+		layer.confirm(
+			'确认要删除吗，删除后数据不可恢复！?', 
+			{icon: 3, title:'提示'},
+			 function(index){
+			 	//确认删除操作
+		  		layer.close(index);
+		  		if(uid == '1'){
+		  			layer.msg('不能删除admin用户');
+		  			return false;
+		  		}
+		  		$.ajax({
+		  			type:"post",
+		  			url:"/admin/Usermanage/delete",
+		  			data:{"idstr":uid},
+		  			success:function(){
+		  				reloadpage();
+		  			},
+		  			error:function(){}
+		  		});
+			},
+			function(){
+				//取消删除操作
+			}
+		);
+	}
+
+	function deleteAll(){
+		layer.confirm(
+			'确认要删除吗，删除后数据不可恢复！?', 
+			{icon: 3, title:'提示'},
+			 function(index){
+			 	
+			 	var delidstr = '';
+			 	var flag = 1;
+			 	$("input:checkbox[name='selectedidstr']:checked").each(function() { // 遍历多选框
+					var tmpid =$(this).val(); 
+					delidstr += tmpid + ',';
+					if(tmpid == '1'){
+						flag = 2;
+					}
+				});
+
+				if(flag == 2){
+					//确认删除操作
+	  				layer.close(index);
+					layer.msg('无法删除admin用户');
+					return false;
+				}
+
+			 	if(delidstr.length > 0){
+					delidstr = delidstr.substring(0,delidstr.length-1);
+			 	}
+
+			 	if(delidstr == ''){
+					//确认删除操作
+		  			layer.close(index);
+					layer.msg('请先选择用户');
+					return false;
+			 	}
+			 	
+				//确认删除操作
+		  		layer.close(index);
+
+		  		$.ajax({
+		  			type:"post",
+		  			url:"/admin/Usermanage/delete",
+		  			data:{"idstr":delidstr},
+		  			success:function(){
+		  				reloadpage();
+		  			},
+		  			error:function(){}
+		  		});
+			},
+			function(){
+				//取消删除操作
+			}
+		);
+	}
+
+	function showSysTips(layerobj){
+		var sysmsg = "{$sysmsg}";
+		var syscode = "{$syscode}";
+		if(sysmsg != ''){
+			if(syscode != '200'){
+				layerobj.msg(sysmsg,{icon:2,time:4000});
+			}else{
+				layerobj.msg(sysmsg,{icon:1,time:4000});
+			}
+			
+		}
+	}
+	
+
+</script>
+
