@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:79:"D:\phpStudy\WWW\tp5\public/../application/admin\view\powermanage\rolenodes.html";i:1524337715;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:79:"D:\phpStudy\WWW\tp5\public/../application/admin\view\powermanage\rolenodes.html";i:1524413687;}*/ ?>
 
 <link rel="stylesheet" href="/static/admin/layui/css/layui.css" media="all" />
   <link rel="stylesheet" href="/static/admin/css/font_eolqem241z66flxr.css" media="all" />
@@ -20,15 +20,15 @@
     <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $k = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;if($vo['gradenum'] == '1'): if($k != '1'): ?>
 				<hr/>
     		<?php endif; ?>
-			<input type="checkbox" id="<?php echo $vo['id']; ?>" pid="<?php echo $vo['pid']; ?>"  class="level<?php echo $vo['id']; ?> pid<?php echo $vo['pid']; ?> gradenum<?php echo $vo['gradenum']; ?>" lay-filter="accesscheckbox" name="roleaccess[]" title="<?php echo $vo['name']; ?>" lay-skin="primary" value="<?php echo $vo['id']; ?>" > <hr/>
+			<input type="checkbox" id="<?php echo $vo['id']; ?>" pid="<?php echo $vo['pid']; ?>"  class="level<?php echo $vo['id']; ?> pid<?php echo $vo['pid']; ?> gradenum<?php echo $vo['gradenum']; ?>" <?php echo checknodeaccess($rid,$vo['id']); ?> lay-filter="accesscheckbox" name="roleaccess[]" title="<?php echo $vo['name']; ?>" lay-skin="primary" value="<?php echo $vo['id']; ?>" > <hr/>
     		
 		<?php else: if($vo['gradenum'] == '2'): ?>
 				<div style="float:left;width:100%;">
-					<input type="checkbox" id="<?php echo $vo['id']; ?>" pid="<?php echo $vo['pid']; ?>" class="level<?php echo $vo['id']; ?> pid<?php echo $vo['pid']; ?> gradenum<?php echo $vo['gradenum']; ?>" lay-filter="accesscheckbox" name="roleaccess[]" title="<?php echo $vo['name']; ?>" lay-skin="primary"  value="<?php echo $vo['id']; ?>"><br />
+					<input type="checkbox" <?php echo checknodeaccess($rid,$vo['id']); ?> id="<?php echo $vo['id']; ?>" pid="<?php echo $vo['pid']; ?>" class="level<?php echo $vo['id']; ?> pid<?php echo $vo['pid']; ?> gradenum<?php echo $vo['gradenum']; ?>" lay-filter="accesscheckbox" name="roleaccess[]" title="<?php echo $vo['name']; ?>" lay-skin="primary"  value="<?php echo $vo['id']; ?>"><br />
 				</div>
 			<?php else: ?>
 				<div style="float:left;width:33%;">
-						&emsp;&emsp;<input type="checkbox" pid="<?php echo $vo['pid']; ?>" id="<?php echo $vo['id']; ?>" class="level<?php echo $vo['id']; ?> pid<?php echo $vo['pid']; ?> gradenum<?php echo $vo['gradenum']; ?>" lay-filter="accesscheckbox" name="roleaccess[]" title="<?php echo $vo['name']; ?>" value="<?php echo $vo['id']; ?>" lay-skin="primary">
+						&emsp;&emsp;<input type="checkbox" <?php echo checknodeaccess($rid,$vo['id']); ?> pid="<?php echo $vo['pid']; ?>" id="<?php echo $vo['id']; ?>" class="level<?php echo $vo['id']; ?> pid<?php echo $vo['pid']; ?> gradenum<?php echo $vo['gradenum']; ?>" lay-filter="accesscheckbox" name="roleaccess[]" title="<?php echo $vo['name']; ?>" value="<?php echo $vo['id']; ?>" lay-skin="primary">
 				</div>
 			<?php endif; endif; endforeach; endif; else: echo "" ;endif; ?>
   </div>
@@ -64,7 +64,7 @@
   </div> -->
   <div class="layui-form-item">
     <div class="layui-input-block">
-      <button id="addbtn" class="layui-btn" lay-submit lay-filter="formgo">立即提交</button>
+      <button type="button" id="addbtn" class="layui-btn" lay-submit lay-filter="formgo">立即提交</button>
       <button type="reset" class="layui-btn layui-btn-primary">重置</button>
     </div>
   </div>
@@ -92,7 +92,7 @@ layui.use(['layer','form','element'], function(){
 	        }
 	    });
 
-	    return;
+	    return false;
 	  
 	});
 
@@ -112,16 +112,16 @@ layui.use(['layer','form','element'], function(){
 		var pid = $(data.elem).attr('pid');
 		if(data.elem.checked){
 			$(".pid"+id).prop('checked','checked');
-			var totalnum = $(".pid"+pid).length;
+			/*var totalnum = $(".pid"+pid).length;
 			var selectnum = $(".pid"+pid+":checked").length;
-			if(totalnum == selectnum){
+			if(totalnum == selectnum){*/
 				$(".level"+pid).prop('checked','checked');
-			}
+			/*}*/
 			form.render('checkbox');
 			
 		}else{
 			$(".pid"+id).removeProp('checked');
-			$(".level"+pid).removeProp('checked');
+			//$(".level"+pid).removeProp('checked');
 			form.render('checkbox');
 		}
 

@@ -10,3 +10,12 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+
+function checknodeaccess($roleid,$nodeid){
+	$res = model('RolesNodes')->getListData('*',array('role_id'=>array('eq',$roleid),'node_id'=>array('eq',$nodeid)),'id desc',1);
+	if($res){
+		return 'checked';
+	}else{
+		return '';
+	}
+}

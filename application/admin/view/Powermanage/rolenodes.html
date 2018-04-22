@@ -21,16 +21,16 @@
     		{if condition="$k neq '1'"}
 				<hr/>
     		{/if}
-			<input type="checkbox" id="{$vo.id}" pid="{$vo.pid}"  class="level{$vo.id} pid{$vo.pid} gradenum{$vo.gradenum}" lay-filter="accesscheckbox" name="roleaccess[]" title="{$vo.name}" lay-skin="primary" value="{$vo.id}" > <hr/>
+			<input type="checkbox" id="{$vo.id}" pid="{$vo.pid}"  class="level{$vo.id} pid{$vo.pid} gradenum{$vo.gradenum}" {:checknodeaccess($rid,$vo.id)} lay-filter="accesscheckbox" name="roleaccess[]" title="{$vo.name}" lay-skin="primary" value="{$vo.id}" > <hr/>
     		
 		{else/}
 			{if condition="$vo.gradenum eq '2'"}
 				<div style="float:left;width:100%;">
-					<input type="checkbox" id="{$vo.id}" pid="{$vo.pid}" class="level{$vo.id} pid{$vo.pid} gradenum{$vo.gradenum}" lay-filter="accesscheckbox" name="roleaccess[]" title="{$vo.name}" lay-skin="primary"  value="{$vo.id}"><br />
+					<input type="checkbox" {:checknodeaccess($rid,$vo.id)} id="{$vo.id}" pid="{$vo.pid}" class="level{$vo.id} pid{$vo.pid} gradenum{$vo.gradenum}" lay-filter="accesscheckbox" name="roleaccess[]" title="{$vo.name}" lay-skin="primary"  value="{$vo.id}"><br />
 				</div>
 			{else/}
 				<div style="float:left;width:33%;">
-						&emsp;&emsp;<input type="checkbox" pid="{$vo.pid}" id="{$vo.id}" class="level{$vo.id} pid{$vo.pid} gradenum{$vo.gradenum}" lay-filter="accesscheckbox" name="roleaccess[]" title="{$vo.name}" value="{$vo.id}" lay-skin="primary">
+						&emsp;&emsp;<input type="checkbox" {:checknodeaccess($rid,$vo.id)} pid="{$vo.pid}" id="{$vo.id}" class="level{$vo.id} pid{$vo.pid} gradenum{$vo.gradenum}" lay-filter="accesscheckbox" name="roleaccess[]" title="{$vo.name}" value="{$vo.id}" lay-skin="primary">
 				</div>
 			{/if}
 			
@@ -71,7 +71,7 @@
   </div> -->
   <div class="layui-form-item">
     <div class="layui-input-block">
-      <button id="addbtn" class="layui-btn" lay-submit lay-filter="formgo">立即提交</button>
+      <button type="button" id="addbtn" class="layui-btn" lay-submit lay-filter="formgo">立即提交</button>
       <button type="reset" class="layui-btn layui-btn-primary">重置</button>
     </div>
   </div>
@@ -99,7 +99,7 @@ layui.use(['layer','form','element'], function(){
 	        }
 	    });
 
-	    return;
+	    return false;
 	  
 	});
 
@@ -119,16 +119,16 @@ layui.use(['layer','form','element'], function(){
 		var pid = $(data.elem).attr('pid');
 		if(data.elem.checked){
 			$(".pid"+id).prop('checked','checked');
-			var totalnum = $(".pid"+pid).length;
+			/*var totalnum = $(".pid"+pid).length;
 			var selectnum = $(".pid"+pid+":checked").length;
-			if(totalnum == selectnum){
+			if(totalnum == selectnum){*/
 				$(".level"+pid).prop('checked','checked');
-			}
+			/*}*/
 			form.render('checkbox');
 			
 		}else{
 			$(".pid"+id).removeProp('checked');
-			$(".level"+pid).removeProp('checked');
+			//$(".level"+pid).removeProp('checked');
 			form.render('checkbox');
 		}
 

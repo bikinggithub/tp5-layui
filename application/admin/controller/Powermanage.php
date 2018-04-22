@@ -354,10 +354,10 @@ class Powermanage extends Base
 
             //echo '<pre/>';var_dump($_POST);die();
             $rid = $_POST['rid'];
+            model('RolesNodes')->where(array('role_id'=>array('eq',$rid)))->delete();
 
             $nodesarr = isset($_POST['roleaccess'])?$_POST['roleaccess']:'';
             if(empty($nodesarr)){
-                model('RolesNodes')->where(array('role_id'=>array('eq',$rid)))->delete();
                 $this->setSysTips(1,'授权成功');
                 echo 200;exit();
             }

@@ -11148,3 +11148,378 @@
 [ info ] [ LOG ] INIT File
 
 ---------------------------------------------------------------
+[ 2018-04-22T23:58:03+08:00 ] 127.0.0.1 127.0.0.1 GET /admin
+[ log ] localtp5.com/admin [运行时间：1.476731s][吞吐率：0.68req/s] [内存消耗：2,252.84kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpStudy\WWW\tp5\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\WWW\tp5\public/../application/admin\view\index\index.html [ array (
+  0 => 'headmenues',
+  1 => 'submenues',
+  2 => 'sysuser',
+  3 => 'gradenum',
+  4 => 'markid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-04-22T23:58:06+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Usermanage/userlist
+[ log ] localtp5.com/admin/Usermanage/userlist [运行时间：0.202957s][吞吐率：4.93req/s] [内存消耗：2,319.42kb] [文件加载：62]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Usermanage',
+    2 => 'userlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Usermanage->userlist[ D:\phpStudy\WWW\tp5\application\admin\controller\Usermanage.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\userlist.html [ array (
+  0 => 'headmenues',
+  1 => 'submenues',
+  2 => 'sysuser',
+  3 => 'gradenum',
+  4 => 'markid',
+  5 => 'sysmsg',
+  6 => 'syscode',
+  7 => 'list',
+  8 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-04-22T23:58:06+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Usermanage/favicon.ico
+[ log ] localtp5.com/admin/Usermanage/favicon.ico [运行时间：0.181192s][吞吐率：5.52req/s] [内存消耗：2,160.38kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Usermanage',
+    2 => 'favicon.ico',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=jl38klcl3elvbjts3shfc75ic4',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin/Usermanage/userlist',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-04-22T23:58:08+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Powermanage/nodelist
+[ log ] localtp5.com/admin/Powermanage/nodelist [运行时间：0.192812s][吞吐率：5.19req/s] [内存消耗：2,286.62kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Powermanage',
+    2 => 'nodelist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=jl38klcl3elvbjts3shfc75ic4',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin/Usermanage/userlist',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Powermanage->nodelist[ D:\phpStudy\WWW\tp5\application\admin\controller\Powermanage.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\WWW\tp5\public/../application/admin\view\powermanage\nodelist.html [ array (
+  0 => 'headmenues',
+  1 => 'submenues',
+  2 => 'sysuser',
+  3 => 'gradenum',
+  4 => 'markid',
+  5 => 'sysmsg',
+  6 => 'syscode',
+  7 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-04-22T23:58:08+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Powermanage/favicon.ico
+[ log ] localtp5.com/admin/Powermanage/favicon.ico [运行时间：0.056395s][吞吐率：17.73req/s] [内存消耗：2,187.78kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Powermanage',
+    2 => 'favicon.ico',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=jl38klcl3elvbjts3shfc75ic4',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin/Powermanage/nodelist',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-04-22T23:58:09+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Powermanage/rolelist
+[ log ] localtp5.com/admin/Powermanage/rolelist [运行时间：0.218174s][吞吐率：4.58req/s] [内存消耗：2,265.53kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Powermanage',
+    2 => 'rolelist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=jl38klcl3elvbjts3shfc75ic4',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin/Powermanage/nodelist',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Powermanage->rolelist[ D:\phpStudy\WWW\tp5\application\admin\controller\Powermanage.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\WWW\tp5\public/../application/admin\view\powermanage\rolelist.html [ array (
+  0 => 'headmenues',
+  1 => 'submenues',
+  2 => 'sysuser',
+  3 => 'gradenum',
+  4 => 'markid',
+  5 => 'sysmsg',
+  6 => 'syscode',
+  7 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-04-22T23:58:12+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Powermanage/rolenodes/rid/2
+[ log ] localtp5.com/admin/Powermanage/rolenodes/rid/2 [运行时间：0.195820s][吞吐率：5.11req/s] [内存消耗：2,356.64kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Powermanage',
+    2 => 'rolenodes',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=jl38klcl3elvbjts3shfc75ic4',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin/Powermanage/rolelist',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'rid' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Powermanage->rolenodes[ D:\phpStudy\WWW\tp5\application\admin\controller\Powermanage.php ]
+[ info ] [ VIEW ] D:\phpStudy\WWW\tp5\public/../application/admin\view\powermanage\rolenodes.html [ array (
+  0 => 'list',
+  1 => 'rid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-04-22T23:58:42+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/powermanage/rolenodes.html
+[ log ] localtp5.com/admin/powermanage/rolenodes.html [运行时间：0.081828s][吞吐率：12.22req/s] [内存消耗：2,181.00kb] [文件加载：56]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'powermanage',
+    2 => 'rolenodes',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=jl38klcl3elvbjts3shfc75ic4',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localtp5.com/admin/Powermanage/rolenodes/rid/2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://localtp5.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '222',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+)
+[ info ] [ PARAM ] array (
+  'rid' => '2',
+  'roleaccess' => 
+  array (
+    0 => '6',
+    1 => '7',
+    2 => '21',
+    3 => '22',
+    4 => '23',
+    5 => '24',
+    6 => '25',
+    7 => '8',
+    8 => '18',
+    9 => '19',
+    10 => '20',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Powermanage->rolenodes[ D:\phpStudy\WWW\tp5\application\admin\controller\Powermanage.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-04-22T23:59:52+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Powermanage/rolenodes/rid/2
+[ log ] localtp5.com/admin/Powermanage/rolenodes/rid/2 [运行时间：0.140538s][吞吐率：7.12req/s] [内存消耗：2,356.63kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Powermanage',
+    2 => 'rolenodes',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=jl38klcl3elvbjts3shfc75ic4',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin/Powermanage/rolelist',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'rid' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Powermanage->rolenodes[ D:\phpStudy\WWW\tp5\application\admin\controller\Powermanage.php ]
+[ info ] [ VIEW ] D:\phpStudy\WWW\tp5\public/../application/admin\view\powermanage\rolenodes.html [ array (
+  0 => 'list',
+  1 => 'rid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
