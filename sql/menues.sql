@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-04-21 22:23:21
+Date: 2018-04-25 01:01:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,7 +35,7 @@ CREATE TABLE `menues` (
   `create_at` datetime NOT NULL COMMENT '创建时间',
   `update_at` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of menues
@@ -60,4 +60,7 @@ INSERT INTO `menues` VALUES ('22', '6', '角色编辑', '/admin/Powermanage/role
 INSERT INTO `menues` VALUES ('23', '6', '角色删除', '/admin/Powermanage/roledelete', '15', '2', 'admin', 'Powermanage', 'roledelete', '1', 'roledelete', '3', '2018-04-21 20:00:56', '2018-04-21 20:00:56');
 INSERT INTO `menues` VALUES ('24', '6', '角色成员查看', '/admin/Powermanage/roleusers', '16', '2', 'admin', 'Powermanage', 'roleusers', '1', 'roleusers', '3', '2018-04-21 22:06:10', '2018-04-21 22:06:10');
 INSERT INTO `menues` VALUES ('25', '6', '取消角色授权', '/admin/Powermanage/deluserrole', '17', '2', 'admin', 'Powermanage', 'deluserrole', '1', 'deluserrole', '3', '2018-04-21 22:08:22', '2018-04-21 22:08:22');
+INSERT INTO `menues` VALUES ('26', '9', '系统变量新增', '/admin/Sysmanage/add', '10', '2', 'admin', 'Sysmanage', 'add', '1', 'varadd', '3', '2018-04-25 00:57:06', '2018-04-25 01:00:15');
+INSERT INTO `menues` VALUES ('27', '9', '系统变量编辑', '/admin/Sysmanage/edit', '20', '2', 'admin', 'Sysmanage', 'edit', '1', 'varedit', '3', '2018-04-25 00:57:57', '2018-04-25 01:00:25');
+INSERT INTO `menues` VALUES ('28', '9', '系统变量删除', '/admin/Sysmanage/delete', '30', '2', 'admin', 'Sysmanage', 'delete', '1', 'vardelete', '3', '2018-04-25 00:58:39', '2018-04-25 01:00:36');
 SET FOREIGN_KEY_CHECKS=1;
