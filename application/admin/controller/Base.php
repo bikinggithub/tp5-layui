@@ -102,7 +102,9 @@ class Base extends controller
 				
 			}
 			
-
+			$brandinfo = model('Menues')->getListData('name',array('link_url'=>array('eq',$linkurl),'pid'=>array('gt',0)),'sortnum desc',1);
+			$this->assign('brandurl',$linkurl);
+			$this->assign('brandname',$brandinfo['name']);
 
 			$this->assign('headmenues',$headmenues);
 			if($submenues){

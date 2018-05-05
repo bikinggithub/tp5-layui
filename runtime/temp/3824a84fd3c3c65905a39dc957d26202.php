@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"D:\phpStudy\WWW\tp5\public/../application/admin\view\sysmanage\index.html";i:1525054140;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1525500763;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1525500366;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1525500301;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"D:\phpStudy\WWW\tp5\public/../application/admin\view\sysmanage\index.html";i:1525054140;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1525528913;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1525500366;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1525500301;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -142,7 +142,8 @@
 				<ul class="layui-tab-title top_tab">
 					<li class="layui-this" lay-id=""><i class="iconfont icon-computer"></i>
 					 <cite>
-					 	<a href="" style="display:inline-block;">后台首页</a>
+					 	<a href="" style="display:inline-block;">后台管理</a> 》
+					 	<a href="" style="display:inline-block;">后台管理</a>
 
 					 </cite>
 					</li>
@@ -403,7 +404,7 @@
 		</div>
 		<!-- 底部 -->
 		<div class="layui-footer footer">
-			<p>copyright @2017 <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+			<p>copyright @2017 <a href="http://www.mycodes.net/" target="_blank"></a></p>
 		</div>
 	</div>
 
