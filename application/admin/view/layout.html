@@ -33,14 +33,14 @@
 
 					<li class="layui-nav-item" pc>
 						<a href="javascript:;">
-							<img src="" class="layui-circle" width="35" height="35">
+							<img src="{$sysuser.headimg}" class="layui-circle" width="35" height="35">
 							<cite>{$sysuser.username}</cite>
 							<span class="layui-nav-more"></span>
 						</a>
-						<dl class="layui-nav-child">
+						<dl class="layui-nav-child" style="background-color:#ffffff !important;">
 							<dd><a href="javascript:;" data-url="page/user/userInfo.html"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
 							<dd><a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
-							<dd><a href="javascript:;"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
+							<dd><a href="{:url('admin/Userlogin/logout')}"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
 						</dl>
 					</li>
 				</ul>

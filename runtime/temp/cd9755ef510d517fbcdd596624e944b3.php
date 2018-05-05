@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:78:"D:\phpStudy\WWW\tp5\public/../application/admin\view\powermanage\nodelist.html";i:1524300961;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1524283474;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1524283474;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1524283474;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:78:"D:\phpStudy\WWW\tp5\public/../application/admin\view\powermanage\nodelist.html";i:1524300961;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1525500763;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1525500366;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1525500301;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,14 +49,14 @@
 
 					<li class="layui-nav-item" pc>
 						<a href="javascript:;">
-							<img src="" class="layui-circle" width="35" height="35">
+							<img src="<?php echo $sysuser['headimg']; ?>" class="layui-circle" width="35" height="35">
 							<cite><?php echo $sysuser['username']; ?></cite>
 							<span class="layui-nav-more"></span>
 						</a>
-						<dl class="layui-nav-child">
+						<dl class="layui-nav-child" style="background-color:#ffffff !important;">
 							<dd><a href="javascript:;" data-url="page/user/userInfo.html"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
 							<dd><a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
-							<dd><a href="javascript:;"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
+							<dd><a href="<?php echo url('admin/Userlogin/logout'); ?>"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
 						</dl>
 					</li>
 				</ul>
@@ -65,7 +65,7 @@
 		<!-- 左侧导航 -->
 		<div class="layui-side layui-bg-black">
 			<div class="user-photo">
-				<a class="img" title="我的头像" ><img src=""></a>
+				<a class="img" title="我的头像" ><img src="<?php echo $sysuser['headimg']; ?>"></a>
 				<p>你好！<span class="userName"><?php echo $sysuser['username']; ?></span>, 欢迎登录</p>
 			</div>
 			<div class="navBar layui-side-scroll">
@@ -235,7 +235,7 @@
 	      </td>
 	      <!-- <td><?php echo $vo['id']; ?></td> -->
 	      <td>|
-	      	<?php $__FOR_START_12225__=1;$__FOR_END_12225__=$vo['gradenum'];for($i=$__FOR_START_12225__;$i < $__FOR_END_12225__;$i+=1){ ?>
+	      	<?php $__FOR_START_1447__=1;$__FOR_END_1447__=$vo['gradenum'];for($i=$__FOR_START_1447__;$i < $__FOR_END_1447__;$i+=1){ ?>
 			--
 			<?php } ?>
 	      	<?php echo $vo['name']; ?>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"D:\phpStudy\WWW\tp5\public/../application/admin\view\sysmanage\index.html";i:1524588707;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1524283474;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1524283474;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1524283474;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"D:\phpStudy\WWW\tp5\public/../application/admin\view\sysmanage\index.html";i:1525054140;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1525500574;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1525500366;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1525500301;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,11 +49,11 @@
 
 					<li class="layui-nav-item" pc>
 						<a href="javascript:;">
-							<img src="" class="layui-circle" width="35" height="35">
+							<img src="<?php echo $sysuser['headimg']; ?>" class="layui-circle" width="35" height="35">
 							<cite><?php echo $sysuser['username']; ?></cite>
 							<span class="layui-nav-more"></span>
 						</a>
-						<dl class="layui-nav-child">
+						<dl class="layui-nav-child" style="background-color:#ffffff !important;">
 							<dd><a href="javascript:;" data-url="page/user/userInfo.html"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
 							<dd><a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
 							<dd><a href="javascript:;"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
@@ -65,7 +65,7 @@
 		<!-- 左侧导航 -->
 		<div class="layui-side layui-bg-black">
 			<div class="user-photo">
-				<a class="img" title="我的头像" ><img src=""></a>
+				<a class="img" title="我的头像" ><img src="<?php echo $sysuser['headimg']; ?>"></a>
 				<p>你好！<span class="userName"><?php echo $sysuser['username']; ?></span>, 欢迎登录</p>
 			</div>
 			<div class="navBar layui-side-scroll">
@@ -199,14 +199,15 @@
       		<input type="checkbox" lay-skin="primary" lay-filter="allChoose">
       	</div>
       </th>
-      <th>变量ID</th>
-      <th>变量名称</th>
-      <th>变量标识</th>
-      <th>变量值</th>
+      <th>ID</th>
+      <th>名称</th>
+      <th>标识</th>
+      <th>值</th>
       <th>状态</th>
-      <th>备注</th>
+      <th width="130px">备注</th>
       <th>创建时间</th>
-      <th>操作</th>
+      <th>是否系统</th>
+      <th width="150px">操作</th>
     </tr> 
   </thead>
   <tbody>
@@ -215,7 +216,7 @@
 	    <tr>
 	      <td>
 	      	<div class="laytable-cell-checkbox">
-	      		<input type="checkbox" lay-filter="itemChoose"  name="selectedidstr" lay-skin="primary" value="<?php echo $vo['id']; ?>" />
+	      		<input type="checkbox" lay-filter="itemChoose"  name="selectedidstr" lay-skin="primary" value="<?php echo $vo['id']; ?>" <?php if($vo['is_sys'] == '1'): ?>disabled<?php endif; ?> />
 	      	</div>
 	      </td>
 	      <td><?php echo $vo['id']; ?></td>
@@ -232,8 +233,21 @@
 	      <td><?php echo $vo['remark']; ?></td>
 	      <td><?php echo $vo['create_at']; ?></td>
 	      <td>
-      		<button class="layui-btn layui-btn-warm" onclick="editAction(<?php echo $vo['id']; ?>)">修改</button>
-      		<button onclick="confirmdel(<?php echo $vo['id']; ?>)" class="layui-btn layui-btn-danger">删除</button>
+	      	<?php if($vo['is_sys'] == '1'): ?>
+	      	是
+	      	<?php else: ?>
+	      	否
+	      	<?php endif; ?>
+	      </td>
+	      <td>
+	      <?php if($vo['is_sys'] == '1'): ?>
+	      		<button class="layui-btn layui-btn-disabled" >修改</button>
+      			<button  class="layui-btn layui-btn-disabled">删除</button>
+	      	<?php else: ?>
+	      		<button class="layui-btn layui-btn-warm" onclick="editAction(<?php echo $vo['id']; ?>)">修改</button>
+      			<button onclick="confirmdel(<?php echo $vo['id']; ?>)" class="layui-btn layui-btn-danger">删除</button>
+	      	<?php endif; ?>
+      		
 	      </td>
 	    </tr>
 	<?php endforeach; endif; else: echo "" ;endif; ?>

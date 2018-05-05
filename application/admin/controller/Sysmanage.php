@@ -73,6 +73,14 @@ class Sysmanage extends Base
     		unset($_POST['edituid']);
 
     		unset($_POST['file']);
+
+            //判断是否为系统级变量
+            $varinfo = model('SysConfig')->getListData('*',array('id'=>array('eq',$edituid)),'id desc',1);
+
+            if($varinfo['is_sys'] == '1'){
+                //$this->setSysTips(2,'系统变量不可编辑');
+                echo json_encode(array('code'=>100,'msg'=>'系统变量不可编辑'));exit();
+            }
     		
 			$res = model('SysConfig')->save($_POST,array('id'=>array('eq',$edituid)));
 			
@@ -80,7 +88,7 @@ class Sysmanage extends Base
 				$this->setSysTips(1,'编辑成功');
                 echo json_encode(array('code'=>200,'msg'=>'编辑成功'));exit();
 			}else{
-				$this->setSysTips(2,'编辑失败');
+				//$this->setSysTips(2,'编辑失败');
                 echo json_encode(array('code'=>100,'msg'=>'编辑失败'));exit();
 			}
 
@@ -109,6 +117,15 @@ class Sysmanage extends Base
     	$delidstr = request()->param('idstr');
     	if($delidstr){
     		$tmpd= explode(',', $delidstr);
+            foreach($tmpd as $v){
+                $varinfo = model('SysConfig')->getListData('*',array('id'=>array('eq',$v)),'id desc',1);
+
+                if($varinfo['is_sys'] == '1'){
+                    $this->setSysTips(2,'系统变量不可删除');exit();
+                }
+            }
+
+
 			$delres = model('SysConfig')->destroy($delidstr);	
 			if($delres){
 				$this->setSysTips(1,'删除成功');

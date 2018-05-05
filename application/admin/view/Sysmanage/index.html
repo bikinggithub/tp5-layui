@@ -47,14 +47,15 @@
       		<input type="checkbox" lay-skin="primary" lay-filter="allChoose">
       	</div>
       </th>
-      <th>变量ID</th>
-      <th>变量名称</th>
-      <th>变量标识</th>
-      <th>变量值</th>
+      <th>ID</th>
+      <th>名称</th>
+      <th>标识</th>
+      <th>值</th>
       <th>状态</th>
-      <th>备注</th>
+      <th width="130px">备注</th>
       <th>创建时间</th>
-      <th>操作</th>
+      <th>是否系统</th>
+      <th width="150px">操作</th>
     </tr> 
   </thead>
   <tbody>
@@ -63,7 +64,7 @@
 	    <tr>
 	      <td>
 	      	<div class="laytable-cell-checkbox">
-	      		<input type="checkbox" lay-filter="itemChoose"  name="selectedidstr" lay-skin="primary" value="{$vo.id}" />
+	      		<input type="checkbox" lay-filter="itemChoose"  name="selectedidstr" lay-skin="primary" value="{$vo.id}" {eq name="$vo.is_sys" value="1"}disabled{/eq} />
 	      	</div>
 	      </td>
 	      <td>{$vo.id}</td>
@@ -80,8 +81,21 @@
 	      <td>{$vo.remark}</td>
 	      <td>{$vo.create_at}</td>
 	      <td>
-      		<button class="layui-btn layui-btn-warm" onclick="editAction({$vo.id})">修改</button>
-      		<button onclick="confirmdel({$vo.id})" class="layui-btn layui-btn-danger">删除</button>
+	      	{if condition="$vo.is_sys eq '1'"}
+	      	是
+	      	{else /}
+	      	否
+	      	{/if}
+	      </td>
+	      <td>
+	      {if condition="$vo.is_sys eq '1'"}
+	      		<button class="layui-btn layui-btn-disabled" >修改</button>
+      			<button  class="layui-btn layui-btn-disabled">删除</button>
+	      	{else /}
+	      		<button class="layui-btn layui-btn-warm" onclick="editAction({$vo.id})">修改</button>
+      			<button onclick="confirmdel({$vo.id})" class="layui-btn layui-btn-danger">删除</button>
+	      	{/if}
+      		
 	      </td>
 	    </tr>
 	{/volist}

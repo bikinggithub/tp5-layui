@@ -6,6 +6,10 @@ class Base extends controller
     public function __construct(){
     	parent::__construct();
 
+    	//检测用户是否登陆
+    	$this->checkUserLogin();
+    	$sysuserinfo = session('sysuser');
+
 		$request = request();
 		$modulename = $request->module();
 		$controlname = $request->controller();
@@ -42,7 +46,8 @@ class Base extends controller
 
 			//系统用户
 			$sysuser = array(
-				'username' => 'hello world',
+				'username' => $sysuserinfo['account'],
+				'headimg' => $sysuserinfo['head_img'],
 			);
 
 			$this->assign('sysuser',$sysuser);
@@ -127,6 +132,15 @@ class Base extends controller
     		session('syscode',100);
     	}
 		session('sysmsg',$msg);
+    }
+
+    //检测用户是否登陆，如果没有登陆，则跳转到登陆页
+    public function checkUserLogin(){
+    	$sysuser = session('sysuser');
+    	if(empty($sysuser)){
+			$this->redirect('Admin/Userlogin/login');
+			exit();
+    	}
     }
 
 
