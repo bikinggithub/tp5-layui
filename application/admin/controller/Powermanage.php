@@ -7,6 +7,10 @@ class Powermanage extends Base
 		parent::__construct();
 	}
 
+    public function index(){
+        return view('public/accessdeny');
+    }
+
     //角色列表
     public function rolelist()
     {

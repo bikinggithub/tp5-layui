@@ -54,6 +54,11 @@ class Userlogin extends Controller
         $this->redirect('admin/Userlogin/login');
     }
 
+    //无访问权限页面
+    public function noaccesspage(){
+        return view();
+    }
+
 
 
 }

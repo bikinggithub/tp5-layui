@@ -7,6 +7,10 @@ class Usermanage extends Base
 		parent::__construct();
 	}
 
+    public function index(){
+        return view('public/accessdeny');
+    }
+
 	//用户列表
     public function userlist()
     {
