@@ -39541,3 +39541,283 @@
 [ info ] [ LOG ] INIT File
 
 ---------------------------------------------------------------
+[ 2018-05-05T22:19:23+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Usermanage/userlist
+[ log ] localtp5.com/admin/Usermanage/userlist [运行时间：0.114040s][吞吐率：8.77req/s] [内存消耗：2,338.12kb] [文件加载：62]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Usermanage',
+    2 => 'userlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pljotprc72bttp74a6an8rr2m4; pgv_pvi=2105702400; pgv_si=s3398423552',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin/Usermanage/userlist',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Usermanage->userlist[ D:\phpStudy\WWW\tp5\application\admin\controller\Usermanage.php ]
+[ info ] [ VIEW ] D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\userlist.html [ array (
+  0 => 'brandurl',
+  1 => 'brandname',
+  2 => 'headmenues',
+  3 => 'submenues',
+  4 => 'sysuser',
+  5 => 'gradenum',
+  6 => 'markid',
+  7 => 'sysmsg',
+  8 => 'syscode',
+  9 => 'list',
+  10 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-05T22:19:27+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Usermanage/userlist
+[ log ] localtp5.com/admin/Usermanage/userlist [运行时间：0.098902s][吞吐率：10.11req/s] [内存消耗：2,338.12kb] [文件加载：62]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Usermanage',
+    2 => 'userlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pljotprc72bttp74a6an8rr2m4; pgv_pvi=2105702400; pgv_si=s3398423552',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin/Usermanage/userlist',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Usermanage->userlist[ D:\phpStudy\WWW\tp5\application\admin\controller\Usermanage.php ]
+[ info ] [ VIEW ] D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\userlist.html [ array (
+  0 => 'brandurl',
+  1 => 'brandname',
+  2 => 'headmenues',
+  3 => 'submenues',
+  4 => 'sysuser',
+  5 => 'gradenum',
+  6 => 'markid',
+  7 => 'sysmsg',
+  8 => 'syscode',
+  9 => 'list',
+  10 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-05T22:19:28+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Usermanage/userlist
+[ log ] localtp5.com/admin/Usermanage/userlist [运行时间：0.099498s][吞吐率：10.05req/s] [内存消耗：2,338.12kb] [文件加载：62]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Usermanage',
+    2 => 'userlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pljotprc72bttp74a6an8rr2m4; pgv_pvi=2105702400; pgv_si=s3398423552',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin/Usermanage/userlist',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Usermanage->userlist[ D:\phpStudy\WWW\tp5\application\admin\controller\Usermanage.php ]
+[ info ] [ VIEW ] D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\userlist.html [ array (
+  0 => 'brandurl',
+  1 => 'brandname',
+  2 => 'headmenues',
+  3 => 'submenues',
+  4 => 'sysuser',
+  5 => 'gradenum',
+  6 => 'markid',
+  7 => 'sysmsg',
+  8 => 'syscode',
+  9 => 'list',
+  10 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-05T22:19:40+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/userlogin/logout.html
+[ log ] localtp5.com/admin/userlogin/logout.html [运行时间：0.023894s][吞吐率：41.85req/s] [内存消耗：1,375.28kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'userlogin',
+    2 => 'logout',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pljotprc72bttp74a6an8rr2m4; pgv_pvi=2105702400; pgv_si=s3398423552',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin/Usermanage/userlist',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Userlogin->logout[ D:\phpStudy\WWW\tp5\application\admin\controller\Userlogin.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-05T22:19:40+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/userlogin/login.html
+[ log ] localtp5.com/admin/userlogin/login.html [运行时间：0.031165s][吞吐率：32.09req/s] [内存消耗：1,370.59kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'userlogin',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pljotprc72bttp74a6an8rr2m4; pgv_pvi=2105702400; pgv_si=s3398423552',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin/Usermanage/userlist',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Userlogin->login[ D:\phpStudy\WWW\tp5\application\admin\controller\Userlogin.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\WWW\tp5\public/../application/admin\view\userlogin\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-05T22:19:40+08:00 ] 127.0.0.1 127.0.0.1 GET /captcha.html
+[ log ] localtp5.com/captcha.html [运行时间：0.080605s][吞吐率：12.41req/s] [内存消耗：1,133.73kb] [文件加载：39]
+[ info ] [ LANG ] D:\phpStudy\WWW\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pljotprc72bttp74a6an8rr2m4; pgv_pvi=2105702400; pgv_si=s3398423552',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://localtp5.com/admin/userlogin/login.html',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'localtp5.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\phpStudy\WWW\tp5\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------

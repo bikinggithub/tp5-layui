@@ -41,6 +41,21 @@
         </div>
         <div class="layui-form-mid layui-word-aux"></div>
       </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">角色</label>
+        <div class="layui-input-inline">
+          <select name="roleid" lay-verify="required">
+            <option value="0">请选择角色</option>
+            {volist name="rolelist" id="vo"}
+              <option {eq name="userinfo['roleid']" value="$vo.id"}selected{/eq} value="{$vo.id}">{$vo.name}</option>
+            {/volist}
+          </select>
+        </div>
+        <div class="layui-form-mid layui-word-aux">必填</div>
+      </div>
+
+
       <div class="layui-form-item">
         <label class="layui-form-label">头像</label>
         <div class="layui-input-inline">
@@ -124,9 +139,20 @@ layui.use(['upload','layer','form'], function(){
 
 
   form.on('submit(formgo)', function(data){
-    $("#editform").submit();
-    top.closebox();
-    top.reloadpage();
+    //$("#editform").submit();
+    
+    $.ajax({
+        url:"{:url('admin/Usermanage/edit')}",
+        type:"POST",
+        data:$('#editform').serialize(),
+        success: function(bdata) {
+            if(bdata == '200'){
+              top.closebox();
+              top.reloadpage();
+            }
+        }
+    });
+
   });
 
 });

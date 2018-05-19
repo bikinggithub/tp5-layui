@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\add.html";i:1524304697;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\add.html";i:1526705384;}*/ ?>
 
 <link rel="stylesheet" href="/static/admin/layui/css/layui.css" media="all" />
   <link rel="stylesheet" href="/static/admin/css/font_eolqem241z66flxr.css" media="all" />
@@ -43,6 +43,20 @@
     </div>
     <div class="layui-form-mid layui-word-aux">必填</div>
   </div>
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">角色</label>
+    <div class="layui-input-inline">
+      <select name="roleid" lay-verify="required">
+        <option value="0">请选择角色</option>
+        <?php if(is_array($rolelist) || $rolelist instanceof \think\Collection || $rolelist instanceof \think\Paginator): $i = 0; $__LIST__ = $rolelist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+          <option value="<?php echo $vo['id']; ?>"><?php echo $vo['name']; ?></option>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
+      </select>
+    </div>
+    <div class="layui-form-mid layui-word-aux">必填</div>
+  </div>
+
   <div class="layui-form-item">
     <label class="layui-form-label">头像</label>
     <div class="layui-input-inline">
@@ -132,9 +146,22 @@ layui.use(['upload','layer','form'], function(){
 
 
 	form.on('submit(formgo)', function(data){
-	  $("#addform").submit();
-	  top.closebox();
-	  top.reloadpage();
+
+	  //$("#addform").submit();
+
+    $.ajax({
+        url:"<?php echo url('admin/Usermanage/add'); ?>",
+        type:"POST",
+        data:$('#addform').serialize(),
+        success: function(bdata) {
+            if(bdata == '200'){
+              top.closebox();
+              top.reloadpage();
+            }
+        }
+    });
+
+
 	});
 	
 

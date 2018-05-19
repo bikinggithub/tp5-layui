@@ -19,3 +19,15 @@ function checknodeaccess($roleid,$nodeid){
 		return '';
 	}
 }
+
+//获取角色名称
+function getRoleName($roleid){
+	$res = model('Roles')->getListData('name',array('id'=>array('eq',$roleid)),'id desc',1);
+	if($res){
+		return $res['name'];
+	}else{
+		return '/';
+	}
+}
+
+

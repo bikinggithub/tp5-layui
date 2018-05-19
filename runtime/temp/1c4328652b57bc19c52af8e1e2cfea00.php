@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:77:"D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\userlist.html";i:1524582497;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1525529271;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1525500366;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1525500301;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:77:"D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\userlist.html";i:1526706709;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1525529271;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1525500366;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1525500301;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -238,6 +238,7 @@
       <th>账号</th>
       <th>头像</th>
       <th>状态</th>
+      <th>角色</th>
       <th>创建时间</th>
       <th>操作</th>
     </tr> 
@@ -263,6 +264,7 @@
 	      	禁用
 	      	<?php endif; ?>
 	      </td>
+	      <td><?php echo getRoleName($user['roleid']); ?></td>
 	      <td><?php echo $user['create_at']; ?></td>
 	      <td>
 

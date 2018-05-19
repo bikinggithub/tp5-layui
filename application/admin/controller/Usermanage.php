@@ -55,18 +55,26 @@ class Usermanage extends Base
     		unset($_POST['file']);
     		$_POST['nickname'] = empty($_POST['nickname'])?$_POST['account']:$_POST['nickname'];
     		$_POST['head_img'] = empty($_POST['head_img'])?config('domname').DS.'static'.DS.'admin'.DS.'images'.DS.'headimg.jpg':$_POST['head_img'];
-			$_POST['create_at'] = date('Y-m-d H:i:s');
+            $_POST['create_at'] = date('Y-m-d H:i:s');
+			$_POST['roleid'] = isset($_POST['roleid'])?$_POST['roleid']:0;
     		$_POST['password'] = md5('sys'.$_POST['password']);
 			$res = model('Users')->data($_POST)->save();
 			
 			if($res){
 				$this->setSysTips(1,'新增成功');
+                echo 200;exit();
 				//$this->success('新增成功',url('admin/Usermanage/userlist'));exit();
 			}else{
 				$this->setSysTips(2,'新增失败');
+                echo 200;exit();
 				// $this->error('新增失败');exit();
 			}
     	}
+
+        //用户角色
+        $rolelist = model('roles')->order('create_at desc')->select();
+        $this->assign('rolelist',$rolelist);
+
     	return view('add');
     }
 
@@ -101,15 +109,16 @@ class Usermanage extends Base
 			}else{
 				$_POST['password'] = md5('sys'.$_POST['password']);
 			}
-    		
 
 			$res = model('Users')->save($_POST,array('id'=>array('eq',$edituid)));
 			
-			if($res){
+			if($res !== false){
 				$this->setSysTips(1,'编辑成功');
+                echo 200;exit();
 				// $this->success('编辑成功',url('admin/Usermanage/userlist'));exit();
 			}else{
 				$this->setSysTips(2,'编辑失败');
+                echo 200;exit();
 				// $this->error('编辑失败');exit();
 			}
     	}
@@ -126,6 +135,10 @@ class Usermanage extends Base
 		}else{
 			echo '用户数据丢失了';exit();
 		}
+
+        //用户角色
+        $rolelist = model('roles')->order('create_at desc')->select();
+        $this->assign('rolelist',$rolelist);
 
     	return view('edit');
     }
