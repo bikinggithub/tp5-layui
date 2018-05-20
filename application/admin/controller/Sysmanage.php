@@ -135,5 +135,56 @@ class Sysmanage extends Base
     	}
     }
 
+
+    //邮件功能测试
+    public function checkEmailFunc(){
+
+        if(request()->isPost()){
+            require_once dirname(dirname(dirname(__FILE__)))."/extra/class.smtp.php";
+            $email_smtp_conf = getSysVar('email_smtp_conf');
+            $email_smtp_conf = json_decode($email_smtp_conf,true);
+            if(empty($email_smtp_conf) || empty($email_smtp_conf['smtpserver']) || empty($email_smtp_conf['port']) || empty($email_smtp_conf['usermail']) || empty($email_smtp_conf['smtpuser']) || empty($email_smtp_conf['smtppass'])){
+                echo json_encode(array('code'=>100,'msg'=>'未配置相关参数'));exit();
+            }
+
+            if(empty(request()->param('recemail'))){
+                echo json_encode(array('code'=>100,'msg'=>'收件方不能为空'));exit();
+            }
+
+            $emailtitle = request()->param('emailtitle');
+            $emailcontent = request()->param('emailcontent');
+
+            //******************** 配置信息 ********************************
+            
+            $smtpserver = $email_smtp_conf['smtpserver'];//SMTP服务器
+            $smtpserverport =$email_smtp_conf['port'];//SMTP服务器端口
+            $usermail = $email_smtp_conf['usermail'];//SMTP服务器的用户邮箱
+            $recemail = request()->param('recemail');//发送给谁
+            $recemail = trim($recemail);//发送给谁
+            $smtpuser = $email_smtp_conf['smtpuser'];//SMTP服务器的用户帐号
+            $smtppass = $email_smtp_conf['smtppass'];//SMTP服务器的用户密码
+            $mailtitle = empty($emailtitle)?"测试邮件":$emailtitle;//邮件主题
+            $mailcontent = empty($emailcontent)?"<h1>这是一封测试邮件</h1>":"<p>".$emailcontent."</p>";//邮件内容
+
+            $mailtype = "HTML";//邮件格式（HTML/TXT）,TXT为文本邮件
+
+            //************************ 配置信息 ****************************
+
+            $smtp = new \smtp($smtpserver,$smtpserverport,true,$smtpuser,$smtppass);//这里面的一个true是表示使用身份验证,否则不使用身份验证.
+            $smtp->debug = false;//是否显示发送的调试信息
+            $state = $smtp->sendmail($recemail, $usermail, $mailtitle, $mailcontent, $mailtype);
+
+            if($state==""){
+                echo json_encode(array('code'=>100,'msg'=>"对不起，邮件发送失败！请检查邮箱填写是否有误。"));
+                exit();
+            }
+            echo json_encode(array('code'=>200,'msg'=>"邮件发送成功！！"));exit();
+
+        }
+        return view('checkemail');
+    }
+
+
+
 }
 

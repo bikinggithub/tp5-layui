@@ -9,6 +9,10 @@ class Userlogin extends Controller
             $account = request()->post('account');
             $password = request()->post('password');
             $checkcode = trim(request()->post('checkcode'));
+            $rememberme = trim(request()->post('rememberme'));
+            if($rememberme){
+                setcookie("sysuserlogin", $account, time()+3600*24*30);
+            }
 
             if(!captcha_check($checkcode)){
              //验证失败
@@ -44,6 +48,14 @@ class Userlogin extends Controller
         if(!empty($uinfo)){
             $this->redirect('admin/Index/index');exit();
         }
+
+        if(isset($_COOKIE["sysuserlogin"])){
+           $userlogin = $_COOKIE["sysuserlogin"];
+        }else{
+           $userlogin = '';
+        }
+
+        $this->assign('username',$userlogin); 
 
         return view();
     }

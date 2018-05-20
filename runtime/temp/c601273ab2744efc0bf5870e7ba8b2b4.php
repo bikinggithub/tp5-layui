@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\phpStudy\WWW\tp5\public/../application/admin\view\userlogin\login.html";i:1525499389;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\phpStudy\WWW\tp5\public/../application/admin\view\userlogin\login.html";i:1526712201;}*/ ?>
 
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ var rootimgpath = "/static/admin/images/";
         <form action="<?php echo url('admin/Userlogin/login'); ?>" id="login_form" method="post">
           <div class="form-group">
             <label for="j_username" class="t">账 号：</label> 
-            <input id="account" value="" name="account" type="text" class="form-control x319 in" 
+            <input id="account" value="<?php echo $username; ?>" name="account" type="text" class="form-control x319 in" 
             autocomplete="off">
           </div>
           <div class="form-group">
@@ -56,7 +56,7 @@ var rootimgpath = "/static/admin/images/";
           <div class="form-group">
             <label class="t"></label>
             <label for="rememberme" class="m">
-            <input id="rememberme" type="checkbox" checked>&nbsp;记住登陆账号!</label>
+            <input id="rememberme" name="rememberme" type="checkbox" checked>&nbsp;记住登陆账号!</label>
             <span class="errormsg" style="display:none;color:#ff0000;display:inline-block;margin-left:20px;"></span>
           </div>
           <div class="form-group space">
@@ -138,9 +138,14 @@ $("#login_form input").focus(function(){
     $(".errormsg").hide();
 });
 
+$("body").keydown(function(){
+  if(event.keyCode==13){
+    //回车提交表单
+    $("#submit_btn").click();
+  }
+});
+
 </script>
-
-
 
 </body>
 </html>

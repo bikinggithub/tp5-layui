@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"D:\phpStudy\WWW\tp5\public/../application/admin\view\sysmanage\index.html";i:1525054140;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1525529271;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1525500366;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1525500301;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"D:\phpStudy\WWW\tp5\public/../application/admin\view\sysmanage\index.html";i:1526801238;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1525529271;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1525500366;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1525500301;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -151,7 +151,24 @@
 				
 				<div class="layui-tab-content clildFrame">
 					<div class="layui-tab-item layui-show" style="padding:20px;overflow-y: scroll;">
-						<div class="layui-row" style="margin-bottom:10px;">
+						<style>
+.boxval{
+	width:200px;
+	position:absolute;
+	left:0px;
+	top:30px;
+	-moz-box-shadow: 2px 2px 10px #999; /* 老的 Firefox */
+	box-shadow: 2px 2px 10px #999;
+	padding:5px;
+	word-wrap: break-word; 
+	word-break: normal;
+	display:none; 
+}
+.lookval{
+	cursor:pointer;
+}
+</style>
+<div class="layui-row" style="margin-bottom:10px;">
     <div class="layui-col-md12">
       <form action="/admin/Usermanage/userlist" method="get" id="searchform">
       	<input type="hidden" name="page" id="pagenum" value='1' />
@@ -163,6 +180,11 @@
             <button onclick="deleteAll();" type="button" class="layui-btn layui-btn-primary">
             	<i class="layui-icon">&#xe640;</i>删除
             </button>
+    		
+            <button onclick="testEmail();" type="button" class="layui-btn layui-btn-primary">
+            	<i class="layui-icon">&#xe609;</i>测试邮件
+            </button>
+
     	</div>
       	<div class="searchformdiv" >
       		<div style="clear:both;float:right;">
@@ -203,7 +225,7 @@
       <th>ID</th>
       <th>名称</th>
       <th>标识</th>
-      <th>值</th>
+      <!-- <th width="80">值</th> -->
       <th>状态</th>
       <th width="130px">备注</th>
       <th>创建时间</th>
@@ -222,8 +244,8 @@
 	      </td>
 	      <td><?php echo $vo['id']; ?></td>
 	      <td><?php echo $vo['name']; ?></td>
-	      <td><?php echo $vo['v_code']; ?></td>
-	      <td><?php echo $vo['v_value']; ?></td>
+	      <td><div style="position:relative;"><?php echo $vo['v_code']; ?> &emsp;<span onclick="$('.val<?php echo $vo['id']; ?>').show();event.stopPropagation();" class="lookval">[查看]</span><div class="boxval val<?php echo $vo['id']; ?>"><?php echo $vo['v_value']; ?></div></div></td>
+	      <!-- <td><?php echo $vo['v_value']; ?></td> -->
 	      <td>
 	      	<?php if($vo['status'] == '1'): ?>
 	      	正常
@@ -310,6 +332,15 @@
 		});
 	}
 
+	function testEmail(){
+		editActionbox = layer.open({
+		  type: 2,
+		  title:'邮件功能测试',
+		  area: ['700px', '500px'], 
+		  content: "<?php echo url('admin/Sysmanage/checkEmailFunc'); ?>" //不想让iframe出现滚动条，可以content: ['http://sentsin.com', 'no']
+		});
+	}
+
 	function closebox(){
 		layer.close(editActionbox);
 	}
@@ -393,6 +424,10 @@
 			
 		}
 	}
+
+	$("body").click(function(){
+		$(".boxval").hide();
+	});
 	
 
 </script>

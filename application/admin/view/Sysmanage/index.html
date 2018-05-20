@@ -1,3 +1,20 @@
+<style>
+.boxval{
+	width:200px;
+	position:absolute;
+	left:0px;
+	top:30px;
+	-moz-box-shadow: 2px 2px 10px #999; /* 老的 Firefox */
+	box-shadow: 2px 2px 10px #999;
+	padding:5px;
+	word-wrap: break-word; 
+	word-break: normal;
+	display:none; 
+}
+.lookval{
+	cursor:pointer;
+}
+</style>
 <div class="layui-row" style="margin-bottom:10px;">
     <div class="layui-col-md12">
       <form action="/admin/Usermanage/userlist" method="get" id="searchform">
@@ -10,6 +27,11 @@
             <button onclick="deleteAll();" type="button" class="layui-btn layui-btn-primary">
             	<i class="layui-icon">&#xe640;</i>删除
             </button>
+    		
+            <button onclick="testEmail();" type="button" class="layui-btn layui-btn-primary">
+            	<i class="layui-icon">&#xe609;</i>测试邮件
+            </button>
+
     	</div>
       	<div class="searchformdiv" >
       		<div style="clear:both;float:right;">
@@ -50,7 +72,7 @@
       <th>ID</th>
       <th>名称</th>
       <th>标识</th>
-      <th>值</th>
+      <!-- <th width="80">值</th> -->
       <th>状态</th>
       <th width="130px">备注</th>
       <th>创建时间</th>
@@ -69,8 +91,8 @@
 	      </td>
 	      <td>{$vo.id}</td>
 	      <td>{$vo.name}</td>
-	      <td>{$vo.v_code}</td>
-	      <td>{$vo.v_value}</td>
+	      <td><div style="position:relative;">{$vo.v_code} &emsp;<span onclick="$('.val{$vo.id}').show();event.stopPropagation();" class="lookval">[查看]</span><div class="boxval val{$vo.id}">{$vo.v_value}</div></div></td>
+	      <!-- <td>{$vo.v_value}</td> -->
 	      <td>
 	      	{if condition="$vo.status eq '1'"}
 	      	正常
@@ -157,6 +179,15 @@
 		});
 	}
 
+	function testEmail(){
+		editActionbox = layer.open({
+		  type: 2,
+		  title:'邮件功能测试',
+		  area: ['700px', '500px'], 
+		  content: "{:url('admin/Sysmanage/checkEmailFunc')}" //不想让iframe出现滚动条，可以content: ['http://sentsin.com', 'no']
+		});
+	}
+
 	function closebox(){
 		layer.close(editActionbox);
 	}
@@ -240,6 +271,10 @@
 			
 		}
 	}
+
+	$("body").click(function(){
+		$(".boxval").hide();
+	});
 	
 
 </script>

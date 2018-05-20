@@ -30,4 +30,19 @@ function getRoleName($roleid){
 	}
 }
 
+//获取系统变量
+function getSysVar($varcode){
+	$varcode = trim($varcode);
+	if($varcode){
+		$res = model('SysConfig')->getListData('v_value',array('v_code'=>array('eq',$varcode),'status'=>array('eq',1)),'id desc',1);
+	if($res){
+		return $res['v_value'];
+	}else{
+		return false;
+	}
+	}else{
+		return false;
+	}
+}
+
 
