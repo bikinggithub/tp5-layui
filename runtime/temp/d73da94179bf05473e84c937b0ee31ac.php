@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:69:"D:\phpStudy\WWW\tp5\public/../application/admin\view\index\index.html";i:1524283474;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1525529271;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1525500366;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1525500301;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:69:"D:\phpStudy\WWW\tp5\public/../application/admin\view\index\index.html";i:1527313358;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1525529271;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1525500366;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1525500301;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -151,9 +151,98 @@
 				
 				<div class="layui-tab-content clildFrame">
 					<div class="layui-tab-item layui-show" style="padding:20px;overflow-y: scroll;">
-						
+						<?php 
+	$hours = date('H');
+	if($hours>=5 && $hours <9){
+		$nowtips = '早上好';
+	}else if($hours>=9 && $hours <12){
+		$nowtips = '上午好';
+	}else if($hours>=12 && $hours <14){
+		$nowtips = '中午好';
+	}else if($hours>=14 && $hours <18){
+		$nowtips = '下午好';
+	}else{
+		$nowtips = '晚上好';
+	}
+ ?>
 
-ssss
+<style>
+	.headtips{
+		height:30px;
+		line-height:30px;
+	}
+	.tips{
+		font-weight:bold;
+		font-size:16px;
+	}
+	.ctips{
+		font-weight:bold;
+	}
+	.headtips{
+		float:left;
+		width:30%;
+	}
+	.rightside{
+		margin-left:38%;
+	}
+	.contentbox{
+		width:100%;
+		overflow:hidden;
+	}
+	.contenttips{
+		padding:5px 1%;
+		width:25%;
+		float:left;
+		text-align:left;
+	}
+</style>
+
+<div class="tipsbox">
+	<div class="headtips tips"><?php  echo $nowtips ?>，<?php echo $sysuser['username']; ?>，欢迎登陆！</div>
+	<div class="headtips rightside">当前系统时间：<span id="systimesnow"></span></div>
+</div>
+
+<div class="contentbox">
+	<div class="contenttips">服务器操作系统：<span class="ctips"><?php  echo PHP_OS; ?></span></div>
+	<div class="contenttips">服务器端信息：<span class="ctips"><?php  echo $_SERVER ['SERVER_SOFTWARE']; ?></span></div>
+</div>
+<div class="contentbox">
+	<div class="contenttips">PHP版本：<span class="ctips"><?php  echo PHP_VERSION; ?></span></div>
+	<div class="contenttips">最大上传限制：<span class="ctips"><?php  echo get_cfg_var ("upload_max_filesize")?get_cfg_var ("upload_max_filesize"):"不允许上传附件"; ?></span></div>
+</div>
+
+
+<script>
+	function p(s) {
+    	return s < 10 ? '0' + s: s;
+	}
+
+	function showTime(){
+		var myDate = new Date();
+		//获取当前年
+		var year=myDate.getFullYear();
+		//获取当前月
+		var month=myDate.getMonth()+1;
+		//获取当前日
+		var date=myDate.getDate(); 
+		var h=myDate.getHours();       //获取当前小时数(0-23)
+		var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+		var s=myDate.getSeconds();  
+
+		var now=year+'-'+p(month)+"-"+p(date)+" "+p(h)+':'+p(m)+":"+p(s);
+		return now;
+	}
+	
+	function gotimes(){
+		$("#systimesnow").html(showTime());
+		setTimeout(function(){
+			gotimes();
+		},1000);
+	}
+	gotimes();
+</script>
+
+
 					</div>
 				</div>
 			</div>

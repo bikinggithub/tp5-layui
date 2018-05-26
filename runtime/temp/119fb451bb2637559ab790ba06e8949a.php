@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\phpStudy\WWW\tp5\public/../application/admin\view\powermanage\add.html";i:1524299401;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\phpStudy\WWW\tp5\public/../application/admin\view\powermanage\add.html";i:1527304664;}*/ ?>
 
 <link rel="stylesheet" href="/static/admin/layui/css/layui.css" media="all" />
   <link rel="stylesheet" href="/static/admin/css/font_eolqem241z66flxr.css" media="all" />
@@ -16,7 +16,7 @@
       <select name="pid" lay-verify="required">
         <option value="0">一级菜单</option>
         <?php if(is_array($pidsarr) || $pidsarr instanceof \think\Collection || $pidsarr instanceof \think\Paginator): $i = 0; $__LIST__ = $pidsarr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$pids): $mod = ($i % 2 );++$i;if($pids['gradenum'] != '3'): ?>
-            <option value="<?php echo $pids['id']; ?>"> <?php if($pids['gradenum'] != '1'): ?>|<?php endif; $__FOR_START_29795__=1;$__FOR_END_29795__=$pids['gradenum'];for($i=$__FOR_START_29795__;$i < $__FOR_END_29795__;$i+=1){ ?>--<?php } ?><?php echo $pids['name']; ?></option>
+            <option value="<?php echo $pids['id']; ?>"> <?php if($pids['gradenum'] != '1'): ?>|<?php endif; $__FOR_START_12933__=1;$__FOR_END_12933__=$pids['gradenum'];for($i=$__FOR_START_12933__;$i < $__FOR_END_12933__;$i+=1){ ?>--<?php } ?><?php echo $pids['name']; ?></option>
           <?php endif; endforeach; endif; else: echo "" ;endif; ?>
       </select>
     </div>
@@ -127,7 +127,7 @@
   </div> -->
   <div class="layui-form-item">
     <div class="layui-input-block">
-      <button id="addbtn" class="layui-btn" lay-submit lay-filter="formgo">立即提交</button>
+      <button type="button" id="addbtn" class="layui-btn" lay-submit lay-filter="formgo">立即提交</button>
       <button type="reset" class="layui-btn layui-btn-primary">重置</button>
     </div>
   </div>
@@ -150,7 +150,7 @@ layui.use(['upload','layer','form'], function(){
         type:"POST",
         data:$('#addform').serialize(),
         success: function(bdata) {
-            if(bdata == '200'){
+            if(bdata == 200){
               top.closebox();
               top.reloadpage();
             }

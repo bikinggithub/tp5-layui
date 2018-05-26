@@ -128,7 +128,7 @@
   </div> -->
   <div class="layui-form-item">
     <div class="layui-input-block">
-      <button id="addbtn" class="layui-btn" lay-submit lay-filter="formgo">立即提交</button>
+      <button type="button" id="addbtn" class="layui-btn" lay-submit lay-filter="formgo">立即提交</button>
       <button type="reset" class="layui-btn layui-btn-primary">重置</button>
     </div>
   </div>
@@ -151,7 +151,7 @@ layui.use(['upload','layer','form'], function(){
         type:"POST",
         data:$('#addform').serialize(),
         success: function(bdata) {
-            if(bdata == '200'){
+            if(bdata == 200){
               top.closebox();
               top.reloadpage();
             }

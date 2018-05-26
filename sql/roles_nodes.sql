@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-04-22 03:09:23
+Date: 2018-05-26 15:41:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,9 +24,16 @@ CREATE TABLE `roles_nodes` (
   `role_id` int(11) NOT NULL COMMENT '角色id',
   `node_id` int(11) NOT NULL COMMENT '节点id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=145 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of roles_nodes
 -- ----------------------------
+INSERT INTO `roles_nodes` VALUES ('144', '2', '7');
+INSERT INTO `roles_nodes` VALUES ('143', '2', '6');
+INSERT INTO `roles_nodes` VALUES ('142', '2', '5');
+INSERT INTO `roles_nodes` VALUES ('141', '2', '4');
+INSERT INTO `roles_nodes` VALUES ('140', '2', '3');
+INSERT INTO `roles_nodes` VALUES ('139', '2', '2');
+INSERT INTO `roles_nodes` VALUES ('138', '2', '1');
 SET FOREIGN_KEY_CHECKS=1;

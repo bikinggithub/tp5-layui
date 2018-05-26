@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-05-05 21:46:57
+Date: 2018-05-26 15:40:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,7 +35,7 @@ CREATE TABLE `menues` (
   `create_at` datetime NOT NULL COMMENT '创建时间',
   `update_at` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of menues
@@ -45,7 +45,7 @@ INSERT INTO `menues` VALUES ('2', '1', '首页欢迎页', '/admin/Index/index', 
 INSERT INTO `menues` VALUES ('3', '0', '系统管理', '/admin/Usermanage/userlist', '10', '1', 'admin', 'Usermanage', 'userlist', '1', 'usermanage', '1', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
 INSERT INTO `menues` VALUES ('4', '3', '用户管理', '/admin/Usermanage/index', '20', '1', 'admin', 'Usermanage', 'index', '1', 'userindex', '2', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
 INSERT INTO `menues` VALUES ('5', '4', '用户列表', '/admin/Usermanage/userlist', '10', '1', 'admin', 'Usermanage', 'userlist', '1', 'usermanage', '3', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
-INSERT INTO `menues` VALUES ('6', '3', '权限管理', '/admin/Powermanage/index', '10', '1', 'admin', 'Powermanage', 'index', '1', 'powerindex', '2', '2018-04-10 20:15:13', '2018-04-21 19:49:05');
+INSERT INTO `menues` VALUES ('6', '3', '权限管理', '/admin/Powermanage/index', '30', '1', 'admin', 'Powermanage', 'index', '1', 'powerindex', '2', '2018-04-10 20:15:13', '2018-04-21 19:49:05');
 INSERT INTO `menues` VALUES ('7', '6', '角色列表', '/admin/Powermanage/rolelist', '10', '1', 'admin', 'Powermanage', 'rolelist', '1', 'rolelist', '3', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
 INSERT INTO `menues` VALUES ('8', '6', '节点列表', '/admin/Powermanage/nodelist', '20', '1', 'admin', 'Powermanage', 'nodelist', '1', 'nodelist', '3', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
 INSERT INTO `menues` VALUES ('9', '3', '系统设置', '/admin/Sysmanage/index', '30', '1', 'admin', 'Sysmanage', 'index', '1', 'systemindex', '2', '2018-04-10 20:15:13', '2018-04-10 20:15:13');
@@ -64,4 +64,6 @@ INSERT INTO `menues` VALUES ('26', '9', '系统变量新增', '/admin/Sysmanage/
 INSERT INTO `menues` VALUES ('27', '9', '系统变量编辑', '/admin/Sysmanage/edit', '20', '2', 'admin', 'Sysmanage', 'edit', '1', 'varedit', '3', '2018-04-25 00:57:57', '2018-04-25 01:00:25');
 INSERT INTO `menues` VALUES ('28', '9', '系统变量删除', '/admin/Sysmanage/delete', '30', '2', 'admin', 'Sysmanage', 'delete', '1', 'vardelete', '3', '2018-04-25 00:58:39', '2018-04-25 01:00:36');
 INSERT INTO `menues` VALUES ('29', '6', '权限查看编辑', '/admin/Powermanage/rolenodes', '18', '2', 'admin', 'Powermanage', 'rolenodes', '1', 'rolenodes', '3', '2018-05-05 21:39:57', '2018-05-05 21:39:57');
+INSERT INTO `menues` VALUES ('30', '9', '邮件功能测试', '/admin/Sysmanage/checkEmailFunc', '40', '2', 'admin', 'Sysmanage', 'checkEmailFunc', '1', 'checkEmailFunc', '3', '2018-05-19 17:44:27', '2018-05-19 17:44:27');
+INSERT INTO `menues` VALUES ('31', '1', '图表统计', '/admin/Index/chartstatistic', '10', '1', 'admin', 'Index', 'chartstatistic', '1', 'chartstatistic', '2', '2018-05-26 10:53:14', '2018-05-26 10:53:14');
 SET FOREIGN_KEY_CHECKS=1;

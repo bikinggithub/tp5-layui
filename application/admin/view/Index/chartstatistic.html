@@ -1,0 +1,347 @@
+
+  <link rel="stylesheet" href="/static/admin/css/charts.css" media="all" />
+  <script type="text/javascript" src="/static/admin/js/echarts.min.js"></script>
+
+  <div class="chartbox">
+		<div class="subbox" id="main" ></div>
+		<div class="subbox" id="main1"></div>
+		<div class="subbox" id="main2"></div>
+		<div class="subbox" id="main3"></div>
+		<div class="subbox" id="main4"></div>
+		<div class="subbox" id="main5"></div>
+		<div class="subbox" id="main6"></div>
+		<div class="subbox" id="main7"></div>
+  </div>
+  
+
+  <script>
+  	// 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+
+         // 绘制图表。
+        echarts.init(document.getElementById('main1')).setOption({
+    title : {
+        text: '某地区蒸发量和降水量',
+        subtext: '纯属虚构'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['蒸发量','降水量']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'蒸发量',
+            type:'bar',
+            data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'降水量',
+            type:'bar',
+            data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
+            markPoint : {
+                data : [
+                    {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183},
+                    {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+});
+
+        // 绘制图表。
+        echarts.init(document.getElementById('main2')).setOption({
+            series: {
+                type: 'pie',
+                data: [
+                    {name: 'A', value: 1212},
+                    {name: 'B', value: 2323},
+                    {name: 'C', value: 1919}
+                ]
+            }
+        });
+
+        // 绘制图表。
+        echarts.init(document.getElementById('main3')).setOption({
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+    },
+    series: [
+        {
+            name:'访问来源',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:335, name:'直接访问'},
+                {value:310, name:'邮件营销'},
+                {value:234, name:'联盟广告'},
+                {value:135, name:'视频广告'},
+                {value:1548, name:'搜索引擎'}
+            ]
+        }
+    ]
+});
+
+
+	echarts.init(document.getElementById('main4')).setOption({
+	    xAxis: {
+	        type: 'category',
+	        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+	    },
+	    yAxis: {
+	        type: 'value'
+	    },
+	    series: [{
+	        data: [820, 932, 901, 934, 1290, 1330, 1320],
+	        type: 'line',
+	        smooth: true
+	    }]
+	});
+
+
+	var base = +new Date(1968, 9, 3);
+	var oneDay = 24 * 3600 * 1000;
+	var date = [];
+
+	var data = [Math.random() * 300];
+
+	for (var i = 1; i < 20000; i++) {
+	    var now = new Date(base += oneDay);
+	    date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
+	    data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
+	}
+
+	echarts.init(document.getElementById('main5')).setOption({
+    tooltip: {
+        trigger: 'axis',
+        position: function (pt) {
+            return [pt[0], '10%'];
+        }
+    },
+    title: {
+        left: 'center',
+        text: '大数据量面积图',
+    },
+    toolbox: {
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: date
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '100%']
+    },
+    dataZoom: [{
+        type: 'inside',
+        start: 0,
+        end: 10
+    }, {
+        start: 0,
+        end: 10,
+        handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+        handleSize: '80%',
+        handleStyle: {
+            color: '#fff',
+            shadowBlur: 3,
+            shadowColor: 'rgba(0, 0, 0, 0.6)',
+            shadowOffsetX: 2,
+            shadowOffsetY: 2
+        }
+    }],
+    series: [
+        {
+            name:'模拟数据',
+            type:'line',
+            smooth:true,
+            symbol: 'none',
+            sampling: 'average',
+            itemStyle: {
+                normal: {
+                    color: 'rgb(255, 70, 131)'
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgb(255, 158, 68)'
+                    }, {
+                        offset: 1,
+                        color: 'rgb(255, 70, 131)'
+                    }])
+                }
+            },
+            data: data
+        }
+    ]
+});
+
+
+	echarts.init(document.getElementById('main6')).setOption({
+    tooltip : {
+        formatter: "{a} <br/>{b} : {c}%"
+    },
+    toolbox: {
+        feature: {
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    series: [
+        {
+            name: '业务指标',
+            type: 'gauge',
+            detail: {formatter:'{value}%'},
+            data: [{value: 50, name: '完成率'}]
+        }
+    ]
+});
+
+	echarts.init(document.getElementById('main7')).setOption({
+    dataset: {
+        source: [
+            ['score', 'amount', 'product'],
+            [89.3, 58212, 'Matcha Latte'],
+            [57.1, 78254, 'Milk Tea'],
+            [74.4, 41032, 'Cheese Cocoa'],
+            [50.1, 12755, 'Cheese Brownie'],
+            [89.7, 20145, 'Matcha Cocoa'],
+            [68.1, 79146, 'Tea'],
+            [19.6, 91852, 'Orange Juice'],
+            [10.6, 101852, 'Lemon Juice'],
+            [32.7, 20112, 'Walnut Brownie']
+        ]
+    },
+    grid: {containLabel: true},
+    xAxis: {name: 'amount'},
+    yAxis: {type: 'category'},
+    visualMap: {
+        orient: 'horizontal',
+        left: 'center',
+        min: 10,
+        max: 100,
+        text: ['High Score', 'Low Score'],
+        // Map the score column to color
+        dimension: 0,
+        inRange: {
+            color: ['#D7DA8B', '#E15457']
+        }
+    },
+    series: [
+        {
+            type: 'bar',
+            encode: {
+                // Map the "amount" column to X axis.
+                x: 'amount',
+                // Map the "product" column to Y axis
+                y: 'product'
+            }
+        }
+    ]
+});
+
+
+  </script>
+
+
+
+
+
+
+

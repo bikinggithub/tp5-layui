@@ -89,9 +89,10 @@ class Powermanage extends Base
 
             $md = model('Menues')->getListData('*',array('link_url'=>array('eq',trim($linkurl))),'id desc',1);
 
-            if($md){
+            if(isset($md['id'])){
                 //已经存在
-                $this->error('该节点已经存在');exit();
+                $this->setSysTips(2,'该节点已经存在');
+                echo 200;exit();
             }
 
 

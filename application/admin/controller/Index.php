@@ -10,4 +10,11 @@ class Index extends Base
     {
         return view('index');
     }
+
+
+    //图表统计
+    public function chartstatistic(){
+        return view('chartstatistic');
+    }
+
 }

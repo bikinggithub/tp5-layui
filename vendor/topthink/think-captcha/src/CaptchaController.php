@@ -17,6 +17,7 @@ class CaptchaController
 {
     public function index($id = "")
     {
+    	ob_clean();//清除缓冲区缓存
         $captcha = new Captcha((array)Config::get('captcha'));
         return $captcha->entry($id);
     }
