@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:77:"D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\userlist.html";i:1526706709;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1525529271;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1525500366;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1525500301;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:77:"D:\phpStudy\WWW\tp5\public/../application/admin\view\usermanage\userlist.html";i:1527437228;s:64:"D:\phpStudy\WWW\tp5\public/../application/admin\view\layout.html";i:1525529271;s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\menue.html";i:1525500366;s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\public\nav.html";i:1525500301;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -158,6 +158,10 @@
       	<div class="actionbtn">
       		<button type="button" onclick="addUser();" class="layui-btn layui-btn-primary">
 			  <i class="layui-icon">&#xe608;</i> 添加
+			</button>
+
+      		<button type="button" onclick="importUser();" class="layui-btn layui-btn-primary">
+			  <i class="layui-icon">&#xe608;</i> 导入
 			</button>	
     		
             <button onclick="deleteAll();" type="button" class="layui-btn layui-btn-primary">
@@ -181,6 +185,7 @@
 			    </div>
 
 			    <button class="layui-btn layui-btn-normal">搜索</button>
+			    <button type="button" class="layui-btn data_output">导出</button>
       		</div>
 		 </div>
 
@@ -339,6 +344,15 @@
 		});
 	}
 
+	function importUser(){
+		edituserbox = layer.open({
+		  type: 2,
+		  title:'excel导入',
+		  area: ['700px', '300px'], 
+		  content: "<?php echo url('admin/Usermanage/importUser'); ?>" //不想让iframe出现滚动条，可以content: ['http://sentsin.com', 'no']
+		});
+	}
+
 	function closebox(){
 		layer.close(edituserbox);
 	}
@@ -438,6 +452,12 @@
 			
 		}
 	}
+
+
+	$(".data_output").click(function(){
+		$("#searchform").attr('action',"/admin/Usermanage/userlist/dao/1");
+		$("#searchform").submit();
+	});
 	
 
 </script>

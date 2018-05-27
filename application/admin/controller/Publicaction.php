@@ -8,6 +8,11 @@ class Publicaction extends Base
         'ext'=>'jpg,png,gif'
     );
 
+    public $uploadfilelimits = array(
+        'size'=>10485760,//10M
+        'ext'=>'xls,xlsx'
+    );
+
     //文件上传 array('code'=>200,'msg'=>'success','data'=>$data)
     public function upload(){
         // 获取表单上传文件
@@ -61,6 +66,30 @@ class Publicaction extends Base
                 // 上传失败获取错误信息
                 $errorinfo =  $file->getError();
                 echo json_encode(array('code'=>100,'msg'=>$errorinfo,'data'=>''));
+            }
+        }
+    }
+
+
+    //文件上传 array('code'=>200,'msg'=>'success','data'=>$data)
+    public function fileupload(){
+        // 获取表单上传文件
+        $file = request()->file('file');
+        // 移动到框架应用根目录/uploads/ 目录下
+        if($file){
+            $info = $file->validate($this->uploadfilelimits)->move(ROOT_PATH .DS.'public'. DS . 'uploads');
+            if($info){
+                // 成功上传后 获取上传信息
+                // 输出 jpg
+                // echo $info->getExtension();
+                // echo $info->getSaveName();
+                // echo $info->getFilename(); 
+                $src = DS.'uploads'.DS.$info->getSaveName();
+                echo json_encode(array('code'=>200,'msg'=>'success','data'=>array('src'=>$src)));
+            }else{
+                // 上传失败获取错误信息
+                $errorinfo =  $file->getError();
+                echo json_encode(array('code'=>100,'msg'=>'error','data'=>$errorinfo));
             }
         }
     }

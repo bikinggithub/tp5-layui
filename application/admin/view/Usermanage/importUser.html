@@ -1,0 +1,107 @@
+{__NOLAYOUT__}
+<link rel="stylesheet" href="/static/admin/layui/css/layui.css" media="all" />
+  <link rel="stylesheet" href="/static/admin/css/font_eolqem241z66flxr.css" media="all" />
+  <link rel="stylesheet" href="/static/admin/css/main.css" media="all" />
+
+  <script type="text/javascript" src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+
+  <script type="text/javascript" src="/static/admin/layui/layui.js"></script>
+
+<div class="dialogbox">
+
+<form class="layui-form" id="addform" action="{:url('admin/Usermanage/importUser')}" method="post">
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">模板</label>
+    <div class="layui-input-inline" style="height:30px;line-height: 35px;">
+      <a href="/static/admin/excel/excelDemo.xlsx">点我下载</a>
+    </div>
+  </div>
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">导入excel*</label>
+    <div class="layui-input-inline">
+      <button type="button" class="layui-btn layui-btn-primary" id="headimg">
+      <i class="layui-icon">&#xe681;</i>上传
+    </button>
+
+    </div>
+    <div class="layui-form-mid layui-word-aux">必填</div>
+  </div>
+  <div class="layui-form-item" id="handimgview">
+    <label class="layui-form-label">文件目录</label>
+    <div class="layui-input-inline"  s>
+      <input style="border:1px solid #eee;width:550px;height:40px;line-height:40px;" type="text" readonly id="excelpath" name="excelpath" value="" />  
+    </div>
+  </div>
+
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button type="button" id="addbtn" class="layui-btn" lay-submit lay-filter="formgo">立即导入</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+
+</div>
+
+ 
+<script>
+
+layui.use(['upload','layer','form'], function(){
+  var upload = layui.upload;
+  var layer = layui.layer;
+  var form = layui.form;
+
+  
+  
+  //执行实例
+  var uploadInst = upload.render({
+    elem: '#headimg', //绑定元素
+    url: "{:url('admin/Publicaction/fileupload')}", //上传接口
+    accept: 'file', //普通文件
+    exts: 'xls|xlsx', //只允许上传压缩文件
+    done: function(res){
+      //上传完毕回调
+      if(res.code != '200'){
+      	//图片上传失败
+      	layer.msg(res.data,{icon:2,time:3000});
+      }else{
+      	//图片上传成功
+      	$("#handimgview").css({"display":"block"});
+      	$("#excelpath").attr('value',res.data.src);
+      }
+
+    },
+    error: function(){
+      //请求异常回调
+    }
+  });
+
+
+	form.on('submit(formgo)', function(data){
+
+	  //$("#addform").submit();
+
+    $.ajax({
+        url:"{:url('admin/Usermanage/importUser')}",
+        type:"POST",
+        data:$('#addform').serialize(),
+        success: function(bdata) {
+            if(bdata == 200){
+              top.closebox();
+              top.reloadpage();
+            }else{
+              layer.msg(bdata.msg,{icon:2,time:1000});
+            }
+        }
+    });
+
+
+	});
+	
+
+});
+
+
+</script>

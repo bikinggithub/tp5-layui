@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-05-26 15:40:32
+Date: 2018-05-28 00:33:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,7 +35,7 @@ CREATE TABLE `menues` (
   `create_at` datetime NOT NULL COMMENT '创建时间',
   `update_at` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of menues
@@ -66,4 +66,5 @@ INSERT INTO `menues` VALUES ('28', '9', '系统变量删除', '/admin/Sysmanage/
 INSERT INTO `menues` VALUES ('29', '6', '权限查看编辑', '/admin/Powermanage/rolenodes', '18', '2', 'admin', 'Powermanage', 'rolenodes', '1', 'rolenodes', '3', '2018-05-05 21:39:57', '2018-05-05 21:39:57');
 INSERT INTO `menues` VALUES ('30', '9', '邮件功能测试', '/admin/Sysmanage/checkEmailFunc', '40', '2', 'admin', 'Sysmanage', 'checkEmailFunc', '1', 'checkEmailFunc', '3', '2018-05-19 17:44:27', '2018-05-19 17:44:27');
 INSERT INTO `menues` VALUES ('31', '1', '图表统计', '/admin/Index/chartstatistic', '10', '1', 'admin', 'Index', 'chartstatistic', '1', 'chartstatistic', '2', '2018-05-26 10:53:14', '2018-05-26 10:53:14');
+INSERT INTO `menues` VALUES ('32', '4', '用户导入', '/admin/usermanage/importuser', '10', '2', 'admin', 'usermanage', 'importuser', '1', 'importuser', '3', '2018-05-28 00:32:29', '2018-05-28 00:32:29');
 SET FOREIGN_KEY_CHECKS=1;

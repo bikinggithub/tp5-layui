@@ -5,6 +5,10 @@
       	<div class="actionbtn">
       		<button type="button" onclick="addUser();" class="layui-btn layui-btn-primary">
 			  <i class="layui-icon">&#xe608;</i> 添加
+			</button>
+
+      		<button type="button" onclick="importUser();" class="layui-btn layui-btn-primary">
+			  <i class="layui-icon">&#xe608;</i> 导入
 			</button>	
     		
             <button onclick="deleteAll();" type="button" class="layui-btn layui-btn-primary">
@@ -28,6 +32,7 @@
 			    </div>
 
 			    <button class="layui-btn layui-btn-normal">搜索</button>
+			    <button type="button" class="layui-btn data_output">导出</button>
       		</div>
 		 </div>
 
@@ -186,6 +191,15 @@
 		});
 	}
 
+	function importUser(){
+		edituserbox = layer.open({
+		  type: 2,
+		  title:'excel导入',
+		  area: ['700px', '300px'], 
+		  content: "{:url('admin/Usermanage/importUser')}" //不想让iframe出现滚动条，可以content: ['http://sentsin.com', 'no']
+		});
+	}
+
 	function closebox(){
 		layer.close(edituserbox);
 	}
@@ -285,6 +299,12 @@
 			
 		}
 	}
+
+
+	$(".data_output").click(function(){
+		$("#searchform").attr('action',"/admin/Usermanage/userlist/dao/1");
+		$("#searchform").submit();
+	});
 	
 
 </script>
